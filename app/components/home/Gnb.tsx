@@ -75,7 +75,7 @@ export default function Gnb({
         </div>
       ) : (
         // 드롭다운
-        <BurgerMenu />
+        <BurgerMenu menus={menus} submenus={submenus} menus2={menus2} />
       )}
     </div>
   );

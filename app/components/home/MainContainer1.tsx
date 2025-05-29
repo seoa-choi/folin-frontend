@@ -48,7 +48,7 @@ export default function MainContainer1() {
               key={item.title}
               className="w-full h-[88px] bg-white rounded-[6px] pt-[5px] px-[8px] pb-[8px]"
             >
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center mb-[5px]">
                 <p className="text-[15px]">{item.title}</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

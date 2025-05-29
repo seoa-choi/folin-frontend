@@ -44,7 +44,7 @@ const userMenu = [
 export default function Header() {
   return (
     <header className="fixed w-full left-0 top-0 px-[24px]">
-      <div className="max-w-[1200px] mx-auto pt-[4px]">
+      <div className="max-w-[1200px] mx-auto pt-[4px] relative">
         <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px]">
           <Gnb menus={menus} submenus={submenus} menus2={menus2} />
           <h1 className="basis-[calc(100%/3)] justify-items-center">
