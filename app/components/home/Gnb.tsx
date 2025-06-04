@@ -34,7 +34,7 @@ export default function Gnb({
   }
 
   return (
-    <div className="flex justify-start gap-[24px] basis-[calc(100%/3)]">
+    <div className="flex justify-start gap-[24px]">
       <button type="button" className="bg-point1">
         <Image
           src={`${
@@ -47,7 +47,7 @@ export default function Gnb({
         />
       </button>
       {!isDropDownOpen ? (
-        <div className="flex gap-[24px]">
+        <div className="flex gap-[24px] max-sm:hidden">
           <ul className="flex gap-[26px] items-center">
             {menus.map((item) => (
               <li key={item.menu} className="">
@@ -75,7 +75,7 @@ export default function Gnb({
         </div>
       ) : (
         // 드롭다운
-        <BurgerMenu menus={menus} submenus={submenus} menus2={menus2} />
+        <BurgerMenu menus={menus} submenus={submenus} />
       )}
     </div>
   );

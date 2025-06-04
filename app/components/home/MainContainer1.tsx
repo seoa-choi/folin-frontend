@@ -26,8 +26,8 @@ const introMenus = [
 
 export default function MainContainer1() {
   return (
-    <div className="py-[24px] px-[8px] bg-point1 rounded-[6px]">
-      <div className="max-w-[588px] mx-auto">
+    <div className="py-[24px] px-[8px] bg-point1 rounded-[6px] max-sm:pb-[8px]">
+      <div className="max-w-[588px] mx-auto max-sm:max-w-full">
         <div className="text-center">
           <div>
             <h3 className="text-[24px] font-bold mb-[8px] leading-[31.2px]">
@@ -41,21 +41,22 @@ export default function MainContainer1() {
             </p>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center gap-[16px]">
+        <div className="w-full flex justify-center items-center gap-[16px] max-sm:gap-[4px]">
           {introMenus.map((item) => (
             <Link
               href={item.path}
               key={item.title}
-              className="w-full h-[88px] bg-white rounded-[6px] pt-[5px] px-[8px] pb-[8px]"
+              className="w-full h-[88px] bg-white rounded-[6px] pt-[5px] px-[8px] pb-[8px] max-sm:h-[68px]"
             >
-              <div className="flex justify-between items-center mb-[5px]">
-                <p className="text-[15px]">{item.title}</p>
+              <div className="flex justify-between items-center mb-[5px] max-mb-0">
+                <p className="text-[15px] max-sm:text-[10px]">{item.title}</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   viewBox="0 0 32 32"
                   fill="none"
+                  className="h-[24px]"
                 >
                   <path
                     d="M28 16C28 22.6274 22.6274 28 16 28C9.37258 28 4 22.6274 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
@@ -69,8 +70,12 @@ export default function MainContainer1() {
                 </svg>
               </div>
               <div className="flex justify-center items-center gap-[4px] font-bold">
-                <span className="text-[28px]">{item.countNum}</span>
-                <span className="text-[24px]">{item.count}</span>
+                <span className="text-[28px] max-sm:text-[18px]">
+                  {item.countNum}
+                </span>
+                <span className="text-[24px] max-sm:text-[15px]">
+                  {item.count}
+                </span>
               </div>
             </Link>
           ))}

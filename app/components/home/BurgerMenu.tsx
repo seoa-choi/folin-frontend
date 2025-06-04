@@ -3,7 +3,6 @@ import Link from 'next/link';
 export default function BurgerMenu({
   menus,
   submenus,
-  menus2,
 }: {
   menus: {
     menu: string;
@@ -17,13 +16,9 @@ export default function BurgerMenu({
     menu: string;
     path: string;
   }[];
-  menus2: {
-    menu: string;
-    path: string;
-  }[];
 }) {
   return (
-    <div className="max-w-[1200px] w-full absolute left-0 top-[55px]">
+    <div className="max-w-[1200px] absolute left-0 top-[55px]">
       <div className="w-[226px] bg-point1 py-[24px] px-[16px] rounded-[6px]">
         <ul>
           {menus.map((item) => (
@@ -50,7 +45,7 @@ export default function BurgerMenu({
           ))}
           <li>
             <Link
-              href=""
+              href="/talk"
               className="block text-[18px] font-bold leading-[24px] mb-[16px]"
             >
               톡

@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { notoSansKR, suite } from '@/app/components/fonts';
+import { pretendard } from '@/app/ui/fonts';
 import TanStackProvider from '@/providers/TanStackProvider';
-import ThemeProvider from '@/app/components/ThemeProvider';
+import ThemeProvider from '@/app/ui/ThemeProvider';
 
 export const metadata: Metadata = {
   title: {
-    default: '폴인 - fol:in',
-    template: '폴인 ',
+    default: '네이버',
+    template: '%s | 네이버',
   },
-  description:
-    '폴인, folin, 직장인, 성공, 인사이트, 트렌드, 브랜딩, 커리어, 멤버십, 구독, 마케팅',
+  description: '네이버 메인에서 다양한 정보와 유용한 컨텐츠를 만나 보세요.',
 };
 
 export default function RootLayout({
@@ -21,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <ThemeProvider>
-        <body className={notoSansKR.className}>
+        <body className={pretendard.className}>
           <TanStackProvider>{children}</TanStackProvider>
         </body>
       </ThemeProvider>

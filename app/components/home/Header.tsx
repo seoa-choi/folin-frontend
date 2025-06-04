@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import Gnb from '@/app/components/home/Gnb';
+import { useEffect, useState } from 'react';
+import SeminarBar from '@/app/components/home/SeminarBar';
 
 const menus = [
   {
@@ -42,47 +46,88 @@ const userMenu = [
 ];
 
 export default function Header() {
+  // 서버 오류 방지 값 0
+  const [windowWidth, setWindowWidth] = useState(0);
+  // 클라이언트에서만 변경
+  const [isMobile, setIsMobile] = useState(false);
+  // 창 크기 변경 시 값을 저장
+  function handleResize() {
+    setWindowWidth(window.innerWidth);
+    setIsMobile(window.innerWidth <= 767);
+  }
+  useEffect(() => {
+    // 클라이언트 환경에서만 실행
+    if (typeof window !== 'undefined') {
+      // 초기 브라우저 너비
+      setWindowWidth(window.innerWidth);
+      // resize 이벤트
+      window.addEventListener('resize', handleResize);
+      // 클린 업
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 767);
+    }
+  }, []);
+
+  // console.log(userMenu);
+  // console.log(userMenu.slice(1));
+  // console.log(isMobile);
+
+  // before bg처리하기
   return (
-    <header className="fixed w-full left-0 top-0 px-[24px]">
-      <div className="max-w-[1200px] mx-auto pt-[4px] relative">
-        <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px]">
-          <Gnb menus={menus} submenus={submenus} menus2={menus2} />
-          <h1 className="basis-[calc(100%/3)] justify-items-center">
-            <Link href="/" className="block w-[86px] h-[29px]">
-              <Image
-                src="/images/folin.png"
-                alt="폴인"
-                width={86}
-                height={29}
-                className="w-full h-full object-cover"
-              />
-            </Link>
-          </h1>
-          <div className="flex items-center justify-end gap-[4px] basis-[calc(100%/3)]">
-            {userMenu.map((item) => (
+    <header
+      className="fixed w-full left-0 top-0 px-[24px] max-sm:px-[8px]"
+      id="header"
+    >
+      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]">
+        <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px] relative">
+          <div className="flex items-center gap-[10px]">
+            <Gnb menus={menus} submenus={submenus} menus2={menus2} />
+            <h1 className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] max-sm:static max-sm:translate-0 ">
               <Link
-                href=""
-                key={item.menu}
-                className={`${item.bg} ${item.color} py-[6px] px-[10px] rounded-[6px] text-[12px] font-bold leading-[15px]`}
+                href="/"
+                className="block w-[86px] h-[29px] max-sm:w-[82px] max-sm:max-h-[83px]"
               >
-                {item.menu}
+                <Image
+                  src="/images/folin.png"
+                  alt="폴인"
+                  width={86}
+                  height={29}
+                  className="w-full h-full object-cover"
+                />
               </Link>
-            ))}
+            </h1>
+          </div>
+          <div className="flex items-center justify-end gap-[4px]">
+            {/* 767이하 0X, 1번 버튼만 */}
+            {isMobile
+              ? userMenu.slice(1).map((item) => (
+                  <Link
+                    href=""
+                    key={item.menu}
+                    className={`${item.bg} ${item.color} py-[6px] px-[10px] rounded-[6px] text-[12px] font-bold h-[27px] leading-[15px]`}
+                  >
+                    {item.menu}
+                  </Link>
+                ))
+              : userMenu.map((item) => (
+                  <Link
+                    href=""
+                    key={item.menu}
+                    className={`${item.bg} ${item.color} py-[6px] px-[10px] rounded-[6px] text-[12px] font-bold h-[27px] leading-[15px]`}
+                  >
+                    {item.menu}
+                  </Link>
+                ))}
             <Image src="/images/search.png" alt="검색" width={32} height={32} />
           </div>
         </nav>
       </div>
-      <div className="max-w-[1200px] mx-auto pt-[4px]">
-        <div className="w-full h-[48px] flex items-center justify-between bg-[#f2ec72] p-[8px] rounded-[6px]">
-          <p className="text-[15px] font-bold">
-            무신사·삼양·Meta·SM, 요즘 가장 압도적인 성과를 내는 마케터들을 한
-            자리에서!
-          </p>
-          <button type="button" className="bg-[#f2ec72] ">
-            <Image src="/images/x.png" alt="닫기" width={32} height={32} />
-          </button>
-        </div>
-      </div>
+      <SeminarBar />
     </header>
   );
 }

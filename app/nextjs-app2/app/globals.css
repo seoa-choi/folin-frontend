@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 @theme {
-  --color-point1: #00d48d;
-  --color-point2: #00aa73;
+  --color-point1: #32a13c;
+  --color-point2: #fbb900;
   --color-gray-400: #999;
   --color-gray-500: #666;
-  --color-gray-600: #111;
+  --color-gray-600: #222;
   /* 1201미만 테블릿 */
-  --breakpoint-lg: 1201px;
+  --breakpoint-md: 1201px;
   /* 1025미만 테블릿 */
-  --breakpoint-md: 1025px;
+  /* --breakpoint-md: 1025px; */
   /* 768미만 모바일 */
   --breakpoint-sm: 768px;
 }
@@ -24,11 +24,11 @@
   /* 컬러 변수 */
   /* :root는 html을 의미 */
   :root {
-    --point-color1: #00d48d;
-    --point-color2: #00aa73;
-    --gray-400: #8c919f;
-    --gray-500: #434242;
-    --gray-600: #111;
+    --point-color1: #32a13c;
+    --point-color2: #fbb900;
+    --gray-400: #999;
+    --gray-500: #666;
+    --gray-600: #222;
   }
 
   /* rem단위사용시 주석풀고 사용 */
@@ -154,7 +154,7 @@
   /* -webkit- 크롬, 사파리, 다른브라우저에서 사용하기도함 */
   a {
     text-decoration: none;
-    color: var(--gray-600);
+    color: var(--gray-500);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   }
 
@@ -226,18 +226,16 @@
   textarea,
   button,
   table {
-    font-family: 'SUITE', 'Noto_Sans_KR', 'Apple SD Gothic Neo', sans-serif;
+    font-family: 'Pretendard', '맑은 고딕', 'malgun gothic',
+      'Apple SD Gothic Neo', sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕',
     helvetica, 'Apple SD Gothic Neo', sans-serif; */
-    font-size: 15px;
-    color: var(--gray-600);
+    font-size: 16px;
+    color: var(--gray-500);
+    /* 테일윈드 줄간격 기본값(1.5) 초기화 */
+    /* line-height: normal; */
+    /* 프리텐다드 기본줄간격 좁으므로 변경 */
     line-height: 1.5;
-    /* 기본 굵기 */
-    font-weight: 500;
-    background: #ebedec;
-    letter-spacing: 0.014em;
-    word-break: keep-all;
-    overflow-wrap: break-word;
   }
 
   /* 스킵 네비 */
