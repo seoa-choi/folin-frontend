@@ -29,9 +29,10 @@ const KeyWordTabs3 = [
 
 export default function KeyWord() {
   return (
-    <div>
+    <div className="pb-[104px] max-sm:pb-[64px]">
       <h2 className="mb-[40px] text-[24px] font-bold">키워드</h2>
-      <div className="max-w-[1200px] mb-[104px]">
+      <div className="max-w-[1200px]">
+        {/* mb-[104px] */}
         <ul className="flex justify-center gap-[4px] flex-wrap mb-[4px]">
           {KeyWordTabs.map((item, i) => (
             <li key={i}>

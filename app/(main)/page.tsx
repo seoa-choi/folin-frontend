@@ -1,7 +1,9 @@
 'use client';
 
+import FolinShorts from '@/app/components/home/FolinShorts';
 import KeyWord from '@/app/components/home/KeyWord';
 import MainContainer1 from '@/app/components/home/MainContainer1';
+import MostViewedArticles from '@/app/components/home/MostViewedArticles';
 import NewSeries from '@/app/components/home/NewSeries';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -21,6 +23,8 @@ export default function Home() {
         <div>
           <NewSeries />
           <KeyWord />
+          <FolinShorts />
+          <MostViewedArticles />
         </div>
       </div>
     </main>
