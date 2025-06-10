@@ -130,3 +130,12 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 767px) {
+  .slide-button,
+  .slide-articles [class*='btn-wrap'],
+  .slide-underline [class*='btn-wrap'],
+  .slide-video [class*='btn-wrap'] {
+    display: none;
+  }
+}

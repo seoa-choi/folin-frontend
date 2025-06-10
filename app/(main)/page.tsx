@@ -7,6 +7,8 @@ import MainContainer1 from '@/app/components/home/MainContainer1';
 import MostViewedArticles from '@/app/components/home/MostViewedArticles';
 import MostViewedVideo from '@/app/components/home/MostViewedVideo';
 import NewSeries from '@/app/components/home/NewSeries';
+import NextSeminar from '@/app/components/home/NextSeminar';
+import SeriesInside from '@/app/components/home/SeriesInside';
 import WideSlider from '@/app/components/home/WideSlider';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -29,7 +31,9 @@ export default function Home() {
           <FolinShorts />
           <MostViewedArticles />
           <MostViewedVideo />
+          <SeriesInside />
           <WideSlider />
+          <NextSeminar />
           <FolinUnderline />
         </div>
       </div>
