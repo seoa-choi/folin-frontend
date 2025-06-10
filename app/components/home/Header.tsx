@@ -83,7 +83,7 @@ export default function Header() {
       id="header"
     >
       {/* before bar 사이 배경색과 같게 */}
-      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute before:bg-[#ebedec] before:w-full before:h-[60px] -z-1">
+      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute before:bg-[#ebedec] before:w-full before:h-[60px] before:-z-1">
         <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px] relative">
           <div className="flex items-center gap-[10px]">
             <Gnb menus={menus} submenus={submenus} menus2={menus2} />

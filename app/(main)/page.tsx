@@ -1,10 +1,13 @@
 'use client';
 
 import FolinShorts from '@/app/components/home/FolinShorts';
+import FolinUnderline from '@/app/components/home/FolinUnderline';
 import KeyWord from '@/app/components/home/KeyWord';
 import MainContainer1 from '@/app/components/home/MainContainer1';
 import MostViewedArticles from '@/app/components/home/MostViewedArticles';
+import MostViewedVideo from '@/app/components/home/MostViewedVideo';
 import NewSeries from '@/app/components/home/NewSeries';
+import WideSlider from '@/app/components/home/WideSlider';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
@@ -25,6 +28,9 @@ export default function Home() {
           <KeyWord />
           <FolinShorts />
           <MostViewedArticles />
+          <MostViewedVideo />
+          <WideSlider />
+          <FolinUnderline />
         </div>
       </div>
     </main>

@@ -18,8 +18,8 @@ export default function BurgerMenu({
   }[];
 }) {
   return (
-    <div className="max-w-[1200px] absolute left-0 top-[55px]">
-      <div className="w-[226px] bg-point1 py-[24px] px-[16px] rounded-[6px]">
+    <div className="max-w-[1200px] absolute left-0 top-[52px]">
+      <div className="w-[226px] bg-point1 py-[24px] px-[16px] rounded-[6px] max-md:w-[256px]">
         <ul>
           {menus.map((item) => (
             <li key={item.menu}>

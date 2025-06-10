@@ -19,8 +19,8 @@ export default function FolinShortsSlider() {
   return (
     <>
       <div className={`${styles['slide-button']}`}>
-        <button className="swiper-button-prev"></button>
-        <button className="swiper-button-next"></button>
+        <button className="shots-button-prev"></button>
+        <button className="shots-button-next"></button>
       </div>
       <Swiper
         className={`${styles['slide-shorts']}`}
@@ -29,14 +29,15 @@ export default function FolinShortsSlider() {
         spaceBetween={24}
         breakpoints={{
           0: { slidesPerView: 1.5, spaceBetween: 8 },
-          767: { slidesPerView: 3, spaceBetween: 16 },
+          600: { slidesPerView: 3, spaceBetween: 16 },
           1023: { slidesPerView: 4, spaceBetween: 24 },
         }}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '.shots-button-next',
+          prevEl: '.shots-button-prev',
         }}
       >
+        {/* 스와이퍼랩퍼가 이미지 두배였는데 aspect-auto하니까 줄어듦 */}
         {FolinShorts.map((item, i) => (
           <SwiperSlide key={i}>
             <Image
@@ -44,7 +45,7 @@ export default function FolinShortsSlider() {
               alt={item.alt}
               width={280}
               height={960}
-              className="w-full h-full object-cover rounded-[6px]"
+              className="w-full h-full object-cover rounded-[6px] aspect-auto max-h-[600px]"
             />
           </SwiperSlide>
         ))}

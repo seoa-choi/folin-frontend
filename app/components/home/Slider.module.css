@@ -1,31 +1,132 @@
 /* 메인 폴인 쇼츠 */
-.slide-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 36px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 12px;
+
+/* 메인 최근 많이 본 아티클 */
+
+.slide-underline [class*='swiper-initialized'] {
+  padding-top: 16px;
 }
-.slide-button [class*='button'] {
+/* 메인 폴인 밑줄 */
+
+/* 메인 최근 많이 본 비디오 */
+
+/* 와이드 슬라이더 */
+.slide-wide {
+  position: relative;
+}
+.slide-wide [class*='btn-wrap'] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95px;
+  height: 24px;
+  background: #111;
+  padding: 3px 8px;
+  border-radius: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+.slide-wide [class*='btn-wrap'] [class*='button'] {
+  width: 16px;
+  height: 16px;
+}
+.slide-wide [class*='button-prev'] {
+  background: url(/images/whiteprev.png) no-repeat center / cover;
+}
+.slide-wide [class*='button-next'] {
+  background: url(/images/whitenext.png) no-repeat center / cover;
+}
+
+/* 메인 버튼 공통 */
+.slide-button [class*='button'],
+.slide-articles [class*='button'],
+.slide-underline [class*='button'],
+.slide-video [class*='button'] {
   width: 24px;
   height: 24px;
-  /* border: 1px solid powderblue; */
 }
-.slide-button [class*='button-prev'] {
+.slide-button [class*='button-prev'],
+.slide-articles [class*='button-prev'],
+.slide-underline [class*='button-prev'],
+.slide-video [class*='button-prev'] {
   background: url(/images/prev.png) no-repeat center / cover;
 }
-.slide-button [class*='button-next'] {
+.slide-button [class*='button-next'],
+.slide-articles [class*='button-next'],
+.slide-underline [class*='button-next'],
+.slide-video [class*='button-next'] {
   background: url(/images/next.png) no-repeat center / cover;
 }
-.slide-button [class*='button-disabled'] {
+.slide-button [class*='button-disabled'],
+.slide-articles [class*='button-disabled'],
+.slide-underline [class*='button-disabled'],
+.slide-video [class*='button-disabled'] {
   opacity: 0.3;
 }
 
-/* 메인 최근 많이 본 아티클 */
-.slide-articles {
-  border: 1px solid paleturquoise;
+.slide-button [class*='button-prev'],
+.slide-button [class*='button-next'],
+.slide-articles [class*='button-prev'],
+.slide-articles [class*='button-next'],
+.slide-underline [class*='button-prev'],
+.slide-underline [class*='button-next'],
+.slide-video [class*='button-prev'],
+.slide-video [class*='button-next'] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slide-button [class*='button-prev'],
+.slide-articles [class*='button-prev'],
+.slide-underline [class*='button-prev'],
+.slide-video [class*='button-prev'] {
+  left: -72px;
+}
+.slide-button [class*='button-next'],
+.slide-articles [class*='button-next'],
+.slide-underline [class*='button-next'],
+.slide-video [class*='button-next'] {
+  right: -72px;
+}
+
+.slide-articles,
+.slide-underline,
+.slide-video {
+  /* border: 1px solid paleturquoise; */
+  position: relative;
+}
+.slide-articles [class*='button-prev'],
+.slide-underline [class*='button-prev'],
+.slide-video [class*='button-prev'] {
+  margin-right: 12px;
+}
+
+/* 버튼 좌우 -> h2 라인으로 */
+@media (max-width: 1440px) {
+  .slide-button,
+  .slide-articles .btn-wrap,
+  .slide-underline .btn-wrap,
+  .slide-video .btn-wrap {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+  }
+  .slide-button [class*='button-prev'],
+  .slide-button [class*='button-next'],
+  .slide-articles [class*='button-prev'],
+  .slide-articles [class*='button-next'],
+  .slide-underline [class*='button-prev'],
+  .slide-underline [class*='button-next'],
+  .slide-video [class*='button-prev'],
+  .slide-video [class*='button-next'] {
+    position: static;
+    transform: translateY(0);
+  }
 }
