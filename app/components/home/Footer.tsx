@@ -85,7 +85,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="px-[24px] max-sm:px-[8px]">
+    <footer className="px-[24px] max-sm:px-[8px] relative z-10">
       <div className="pt-[12px] px-[16px] pb-[64px] bg-white rounded-[6px_6px_0_0]">
         <ul className="flex gap-[16px] border-b-1 border-b-[#00d48d] pb-[9px] max-sm:flex-wrap max-sm:gap-y-[8px]">
           {fMenus.map((item) => (

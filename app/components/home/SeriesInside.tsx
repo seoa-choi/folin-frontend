@@ -46,7 +46,7 @@ const series = [
 
 export default function SeriesInside() {
   return (
-    <div className={`pb-[104px] ${styles['slide-video']} max-sm:pb-[64px]`}>
+    <div className={`pb-[104px] ${styles['slide-series']} max-sm:pb-[64px]`}>
       <div className="flex justify-between">
         <Link
           href=""

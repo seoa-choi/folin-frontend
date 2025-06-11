@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Gnb from '@/app/components/home/Gnb';
 import { useEffect, useState } from 'react';
-import SeminarBar from '@/app/components/home/SeminarBar';
+import SearchMenu from '@/app/components/home/SearchMenu';
 
 const menus = [
   {
@@ -46,6 +46,8 @@ const userMenu = [
 ];
 
 export default function Header() {
+  // 써치
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   // 서버 오류 방지 값 0
   const [windowWidth, setWindowWidth] = useState(0);
   // 클라이언트에서만 변경
@@ -77,13 +79,16 @@ export default function Header() {
   // console.log(userMenu.slice(1));
   // console.log(isMobile);
 
+  function handleSearchBar() {
+    setIsSearchOpen(!isSearchOpen);
+  }
+
   return (
     <header
       className="fixed w-full left-0 top-0 px-[24px] max-sm:px-[8px] z-100"
       id="header"
     >
-      {/* before bar 사이 배경색과 같게 */}
-      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute before:bg-[#ebedec] before:w-full before:h-[60px] before:-z-1">
+      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute before:bg-[#ebedec] before:w-full before:h-[50px]">
         <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px] relative">
           <div className="flex items-center gap-[10px]">
             <Gnb menus={menus} submenus={submenus} menus2={menus2} />
@@ -123,11 +128,32 @@ export default function Header() {
                     {item.menu}
                   </Link>
                 ))}
-            <Image src="/images/search.png" alt="검색" width={32} height={32} />
+            {/* 검색 */}
+            <button
+              type="button"
+              className="bg-transparent"
+              onClick={handleSearchBar}
+            >
+              {!isSearchOpen ? (
+                <Image
+                  src="/images/search.png"
+                  alt="검색"
+                  width={32}
+                  height={32}
+                />
+              ) : (
+                <Image
+                  src="/images/close.png"
+                  alt="검색"
+                  width={32}
+                  height={32}
+                />
+              )}
+            </button>
           </div>
         </nav>
+        {isSearchOpen && <SearchMenu />}
       </div>
-      <SeminarBar />
     </header>
   );
 }

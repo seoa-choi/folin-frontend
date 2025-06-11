@@ -8,11 +8,12 @@ import MostViewedArticles from '@/app/components/home/MostViewedArticles';
 import MostViewedVideo from '@/app/components/home/MostViewedVideo';
 import NewSeries from '@/app/components/home/NewSeries';
 import NextSeminar from '@/app/components/home/NextSeminar';
+import SeminarBar from '@/app/components/home/SeminarBar';
 import SeriesInside from '@/app/components/home/SeriesInside';
 import WideSlider from '@/app/components/home/WideSlider';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   useEffect(() => {
@@ -21,10 +22,19 @@ export default function Home() {
     }
   }, []);
 
+  const [isClosed, setIsClosed] = useState(false);
+
+  function handleClose(e?: React.MouseEvent<HTMLButtonElement>) {
+    // e가 있을 때만
+    if (e) e.preventDefault();
+    setIsClosed(!isClosed);
+  }
+
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">
-      <div className="mt-[56px] max-w-[1200px]">
-        <MainContainer1 />
+      <div className="max-w-[1200px]">
+        <SeminarBar isClosed={isClosed} handleClose={handleClose} />
+        <MainContainer1 isClosed={isClosed} />
         <div>
           <NewSeries />
           <KeyWord />
