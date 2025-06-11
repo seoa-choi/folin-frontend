@@ -83,7 +83,7 @@ export default function NewSeries() {
                 >
                   <span className="text-[12px]">더보기</span>
                   <Image
-                    src="/images/arrow.png"
+                    src="/images/gg.png"
                     alt="더보기"
                     width={36}
                     height={17}
@@ -143,7 +143,7 @@ export default function NewSeries() {
               >
                 <span className="text-[12px]">더보기</span>
                 <Image
-                  src="/images/arrow.png"
+                  src="/images/gg.png"
                   alt="더보기"
                   width={36}
                   height={17}

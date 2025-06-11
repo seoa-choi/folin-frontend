@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
 const SearchMenus = [
   { menu: '마케팅' },
@@ -13,9 +14,35 @@ const SearchMenus = [
   { menu: '콘텐츠' },
   { menu: '공간' },
 ];
-export default function SearchMenu() {
+export default function SearchMenu({
+  setIsSearchOpen,
+}: {
+  setIsSearchOpen: Dispatch<SetStateAction<boolean>>;
+}) {
+  const SearchRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (!e.target) return;
+      if (SearchRef.current && !SearchRef.current.contains(e.target as Node)) {
+        setIsSearchOpen(false);
+      }
+    }
+
+    // 서버 실행 방지
+    if (typeof window !== 'undefined') {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, []);
+
   return (
-    <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]">
+    <div
+      className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]"
+      ref={SearchRef}
+    >
       <form className="flex items-center gap-x-[8px] py-[4px] pr-[12px] pl-[6px] w-full rounded-[6px] bg-[#f7f7f7]">
         <button type="submit" className="w-[32px] h-[32px] bg-transparent">
           <Image src="/images/search.png" alt="검색" width={24} height={24} />

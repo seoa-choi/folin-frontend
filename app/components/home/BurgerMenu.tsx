@@ -3,6 +3,7 @@ import Link from 'next/link';
 export default function BurgerMenu({
   menus,
   submenus,
+  handleClose,
 }: {
   menus: {
     menu: string;
@@ -16,9 +17,13 @@ export default function BurgerMenu({
     menu: string;
     path: string;
   }[];
+  handleClose: () => void;
 }) {
   return (
-    <div className="max-w-[1200px] absolute left-0 top-[52px]">
+    <div
+      className="max-w-[1200px] absolute left-0 top-[52px]"
+      onClick={handleClose}
+    >
       <div className="w-[226px] bg-point1 py-[24px] px-[16px] rounded-[6px] max-md:w-[256px]">
         <ul>
           {menus.map((item) => (

@@ -26,7 +26,6 @@ const introMenus = [
 
 export default function MainContainer1({ isClosed }: { isClosed: boolean }) {
   return (
-    // seminarBar height감지 하는 게 있을지도? 특정 분기점 만들어서 패딩 늘려줌
     <div
       className={`${
         isClosed

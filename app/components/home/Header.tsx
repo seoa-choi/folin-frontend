@@ -152,7 +152,7 @@ export default function Header() {
             </button>
           </div>
         </nav>
-        {isSearchOpen && <SearchMenu />}
+        {isSearchOpen && <SearchMenu setIsSearchOpen={setIsSearchOpen} />}
       </div>
     </header>
   );

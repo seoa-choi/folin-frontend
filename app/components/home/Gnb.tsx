@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BurgerMenu from '@/app/components/home/BurgerMenu';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Gnb({
   menus,
@@ -28,13 +28,35 @@ export default function Gnb({
   }[];
 }) {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const GnbRef = useRef<HTMLDivElement | null>(null);
 
   function handleToggleMenu() {
     setIsDropDownOpen(!isDropDownOpen);
   }
 
+  function handleClose() {
+    setIsDropDownOpen(false);
+  }
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (!e.target) return;
+      if (GnbRef.current && !GnbRef.current.contains(e.target as Node)) {
+        setIsDropDownOpen(false);
+      }
+    }
+
+    // 서버 실행 방지
+    if (typeof window !== 'undefined') {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, []);
+
   return (
-    <div className="flex justify-start gap-[24px]">
+    <div className="flex justify-start gap-[24px]" ref={GnbRef}>
       <button type="button" className="bg-point1">
         <Image
           src={`${
@@ -75,7 +97,11 @@ export default function Gnb({
         </div>
       ) : (
         // 드롭다운
-        <BurgerMenu menus={menus} submenus={submenus} />
+        <BurgerMenu
+          menus={menus}
+          submenus={submenus}
+          handleClose={handleClose}
+        />
       )}
     </div>
   );
