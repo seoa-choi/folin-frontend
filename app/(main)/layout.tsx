@@ -4,12 +4,14 @@ import Header from '@/app/components/home/Header';
 import Footer from '@/app/components/home/Footer';
 import Membership from '@/app/components/home/Membership';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -40,7 +42,8 @@ export default function MainLayout({
     <div>
       <Header />
       {children}
-      <Membership isSticky={isSticky} />
+      {/* 멤버십 메인만 적용 */}
+      {pathname === '/' && <Membership isSticky={isSticky} />}
       <Footer />
     </div>
   );

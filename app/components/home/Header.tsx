@@ -34,7 +34,7 @@ const menus2 = [
 ];
 
 const submenus = [
-  { menu: '링커', path: 'linker' },
+  { menu: '링커', path: '/linker' },
   { menu: '폴인 소개', path: '' },
   { menu: '단체구독·B2B문의', path: '' },
   { menu: '폴인레터 신청', path: '' },
