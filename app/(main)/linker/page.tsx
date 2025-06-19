@@ -11,6 +11,9 @@ export default function Linker() {
   }
   const data = getLinker();
   // console.log(data);
+  // promise 해제
+  // const linkers = use(data);
+  // console.log(linkers);
 
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">

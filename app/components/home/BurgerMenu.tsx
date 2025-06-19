@@ -30,7 +30,7 @@ export default function BurgerMenu({
             <li key={item.menu}>
               <Link
                 href={item.path}
-                className="block text-[18px] font-bold leading-[24px] mb-[16px]"
+                className="block text-[18px] font-bold leading-[24px] pb-[16px]"
               >
                 {item.menu}
               </Link>
@@ -39,7 +39,7 @@ export default function BurgerMenu({
                   <li key={subItem.menuItem} className="pl-[16px]">
                     <Link
                       href={subItem.path}
-                      className="block leading-[20px] mb-[16px]"
+                      className="block leading-[20px] pb-[16px]"
                     >
                       {subItem.menuItem}
                     </Link>
@@ -51,7 +51,7 @@ export default function BurgerMenu({
           <li>
             <Link
               href="/talk"
-              className="block text-[18px] font-bold leading-[24px] mb-[16px]"
+              className="block text-[18px] font-bold leading-[24px] pb-[16px]"
             >
               톡
             </Link>
@@ -60,7 +60,7 @@ export default function BurgerMenu({
         <ul className="pt-[24px] border-t-1">
           {submenus.map((item) => (
             <li key={item.menu}>
-              <Link href={item.path} className="block leading-[20px] mb-[16px]">
+              <Link href={item.path} className="block leading-[20px] pb-[16px]">
                 {item.menu}
               </Link>
             </li>

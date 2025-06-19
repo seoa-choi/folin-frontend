@@ -55,6 +55,7 @@ export default function LinkerIntro() {
   const [occupation, setOccupation] = useState('전체');
   const [page, setPage] = useState(1);
 
+  // 쿼리스트링 상태 반영, 쿼리스트링 없으면 전체로 초기화
   useEffect(() => {
     setOccupation(searchParams.get('occupation') || '전체');
   }, [searchParams]);
@@ -96,6 +97,7 @@ export default function LinkerIntro() {
           .linker_id
       : null;
 
+  // 탭 버튼 클릭 시 occupation값 쿼리스트링에 반영, 배경색 적용
   function handleOccupationChange(role: string, color: string) {
     const params = new URLSearchParams(searchParams.toString());
     params.set('occupation', role);
@@ -105,8 +107,11 @@ export default function LinkerIntro() {
 
     setPage(1);
     setRandomBg({ bg: color });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // page 쿼리스트링 업데이트
   function handlePageChange(newPage: number) {
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', newPage.toString());

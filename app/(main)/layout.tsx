@@ -42,8 +42,12 @@ export default function MainLayout({
     <div>
       <Header />
       {children}
-      {/* 멤버십 메인만 적용 */}
-      {pathname === '/' && <Membership isSticky={isSticky} />}
+      {/* 멤버십 - 메인만 적용 */}
+      {/* {pathname === '/' && <Membership isSticky={isSticky} />} */}
+      {['/', '/series', '/seminar'].includes(pathname) && (
+        <Membership isSticky={isSticky} />
+      )}
+
       <Footer />
     </div>
   );
