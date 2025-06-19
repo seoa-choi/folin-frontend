@@ -1,6 +1,6 @@
 'use client';
 
-import Pagination from '@/app/components/Pagination';
+import Pagination from '@/app/components/StringPagination';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

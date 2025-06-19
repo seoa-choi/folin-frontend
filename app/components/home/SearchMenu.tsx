@@ -37,12 +37,9 @@ export default function SearchMenu({
       };
     }
   }, []);
-
+  // ref={SearchRef} // 토글이 안되서 일단 주석처리
   return (
-    <div
-      className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]"
-      ref={SearchRef}
-    >
+    <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]">
       <form className="flex items-center gap-x-[8px] py-[4px] pr-[12px] pl-[6px] w-full rounded-[6px] bg-[#f7f7f7]">
         <button type="submit" className="w-[32px] h-[32px] bg-transparent">
           <Image src="/images/search.png" alt="검색" width={24} height={24} />

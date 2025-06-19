@@ -1,5 +1,4 @@
 import LinkerIntro from '@/app/components/linker/LinkerIntro';
-import LinkerTab from '@/app/components/linker/LinkerTab';
 
 export default function Linker() {
   async function getLinker() {
@@ -29,8 +28,7 @@ export default function Linker() {
             폴인에는 1,200여명의 링커가 모여 있습니다.
           </p>
         </div>
-        <LinkerTab />
-        <LinkerIntro data={data} />
+        <LinkerIntro />
       </div>
     </main>
   );
