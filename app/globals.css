@@ -240,6 +240,10 @@
     overflow-wrap: break-word;
   }
 
+  button {
+    font-family: 'Noto_Sans_KR';
+  }
+
   /* 스킵 네비 */
   #skip-navi {
     position: relative;
