@@ -7,15 +7,15 @@ import 'swiper/css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Pagination from '@/app/components/Pagination';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-type SeriesSlideProps = {
-  gridSeries: GridSeries[];
-  page: number;
-  limit: number;
-  totalCount: number;
-};
+// type SeriesSlideProps = {
+//   gridSeries: GridSeries[];
+//   page: number;
+//   limit: number;
+//   totalCount: number;
+// };
 
 type GridSeries = {
   series_title: string;
@@ -30,22 +30,27 @@ type GridSeries = {
   }[];
 };
 
-const pointColor = [
-  { bg: 'bg-[#a45eeb]', bd: 'border-[#a45eeb]' },
-  { bg: 'bg-[#ff595f]', bd: 'border-[#ff595f]' },
-  { bg: 'bg-[#e5c58a]', bd: 'border-[#e5c58a]' },
-  { bg: 'bg-[#f2ec72]', bd: 'border-[#f2ec72]' },
-  { bg: 'bg-[#a3cfff]', bd: 'border-[#a3cfff]' },
-  { bg: 'bg-[#25aacf]', bd: 'border-[#25aacf]' },
-];
+type PointColor = {
+  bg: string;
+  bd: string;
+};
+[];
 
 export default function SeriesSlide({
   gridSeries,
-  page: initialPage,
+  page,
+  setPage,
   limit,
   totalCount,
-}: SeriesSlideProps) {
-  const [page, setPage] = useState(initialPage);
+  pointColor,
+}: {
+  gridSeries: GridSeries[];
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  limit: number;
+  totalCount: number;
+  pointColor: PointColor[];
+}) {
   const [totalPage, setTotalPage] = useState(0);
 
   const searchParams = useSearchParams();

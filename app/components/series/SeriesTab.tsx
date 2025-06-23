@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { Dispatch, SetStateAction, useMemo, useState } from 'react';
 
 type SeriesTab = {
   series_id: number;
@@ -22,9 +22,11 @@ const sorted_img = [
 export default function SeriesTab({
   seriesTab,
   handleChangeComponent,
+  setPage,
 }: {
   seriesTab: SeriesTab[];
   handleChangeComponent: (viewType: 'slide' | 'list') => void;
+  setPage: Dispatch<SetStateAction<number>>;
 }) {
   // 왼 버튼
   const [activeBtn, setActiveBtn] = useState('시리즈로 보기');
@@ -46,6 +48,7 @@ export default function SeriesTab({
 
   function handleChangeBtn(tit: string) {
     setActiveBtn(tit);
+    setPage(1);
   }
 
   function handleBtnBlock() {
@@ -55,6 +58,7 @@ export default function SeriesTab({
   function handleSortOption(sortName: string) {
     setSortOption(sortName);
     setIsBlock(false);
+    setPage(1);
   }
 
   function handleChangeView(selectedImg: string) {
