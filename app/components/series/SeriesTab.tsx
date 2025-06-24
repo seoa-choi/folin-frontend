@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Dispatch, SetStateAction, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react';
 
 type SeriesTab = {
   series_id: number;
@@ -25,9 +26,11 @@ export default function SeriesTab({
   setPage,
 }: {
   seriesTab: SeriesTab[];
-  handleChangeComponent: (viewType: 'slide' | 'list') => void;
-  setPage: Dispatch<SetStateAction<number>>;
+  handleChangeComponent?: (viewType: 'slide' | 'list') => void;
+  setPage?: Dispatch<SetStateAction<number>>;
 }) {
+  const pathname = usePathname();
+
   // 왼 버튼
   const [activeBtn, setActiveBtn] = useState('시리즈로 보기');
   // 오 - 왼 버튼
@@ -48,7 +51,7 @@ export default function SeriesTab({
 
   function handleChangeBtn(tit: string) {
     setActiveBtn(tit);
-    setPage(1);
+    setPage?.(1);
   }
 
   function handleBtnBlock() {
@@ -58,12 +61,28 @@ export default function SeriesTab({
   function handleSortOption(sortName: string) {
     setSortOption(sortName);
     setIsBlock(false);
-    setPage(1);
+    setPage?.(1);
   }
 
   function handleChangeView(selectedImg: string) {
     setViewMode(selectedImg);
   }
+
+  // 현재 브라우저 주소에 해당하는 탭을 자동으로 골라서 액티브 처리
+  useEffect(() => {
+    const matchedTab = seriesTab?.find(
+      (tab) => tabConfigs[tab.tit as keyof typeof tabConfigs]?.path === pathname
+    );
+
+    if (matchedTab) {
+      setActiveBtn(matchedTab.tit);
+    }
+  }, [pathname, seriesTab, tabConfigs]);
+  // 의존성 배열에 (pathname, seriesTab, tabConfigs) 중 하나라도 변경되면 내부 로직이 실행
+  // URL이 바뀌거나 (경로 이동), 탭 데이터가 새로 들어오거나 (비동기 fetch 등),탭 설정 객체가 변할 경우
+  // seriesTab 배열을 순회하면서 tab.tit을 키로 사용해 tabConfigs에서 대응되는 path를 꺼냄
+  // 그 path가 현재 URL 경로(pathname)랑 같으면 일치하는 탭(matchedTab) 발견
+  // 그 탭의 tit을 activeBtn으로 설정해서,렌더링 시 activeBtn === btn.tit 조건을 만족하는 탭만 액티브
 
   return (
     <div className="pt-[4px] flex justify-between max-[850px]:flex-col max-[850px]:gap-y-[4px]">
@@ -131,24 +150,28 @@ export default function SeriesTab({
             ))}
           </div>
         </div>
-        {/* 그리드, 리스트 */}
-        <div className="h-fit">
-          {sorted_img.map((item) => (
-            <button key={item.alt} className="first:pr-[8px]">
-              <Image
-                src={viewMode === item.activeImg ? item.activeImg : item.img}
-                alt={item.alt}
-                width={32}
-                height={32}
-                priority
-                onClick={() => {
-                  handleChangeView(item.activeImg);
-                  handleChangeComponent(item.alt === 'grid' ? 'slide' : 'list');
-                }}
-              />
-            </button>
-          ))}
-        </div>
+        {/* 그리드, 리스트 - 시리즈로 보기만 */}
+        {pathname === '/series' && (
+          <div className="h-fit">
+            {sorted_img.map((item) => (
+              <button key={item.alt} className="first:pr-[8px]">
+                <Image
+                  src={viewMode === item.activeImg ? item.activeImg : item.img}
+                  alt={item.alt}
+                  width={32}
+                  height={32}
+                  priority
+                  onClick={() => {
+                    handleChangeView(item.activeImg);
+                    handleChangeComponent?.(
+                      item.alt === 'grid' ? 'slide' : 'list'
+                    );
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

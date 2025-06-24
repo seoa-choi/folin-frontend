@@ -16,13 +16,12 @@ const pointColor = [
 ];
 
 export default function Series() {
+  const [seriesData, setSeriesData] = useState<any>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
   const initialPage = Number(searchParams.get('page')) || 1;
 
   const [page, setPage] = useState<number>(initialPage);
-
-  const [seriesData, setSeriesData] = useState<any>(null);
 
   const [viewType, setViewType] = useState<'slide' | 'list'>('slide');
 
@@ -71,6 +70,7 @@ export default function Series() {
           setPage={setPage}
         />
         {/* 뷰 스타일 - 그리드, 리스트 시리즈탭 버튼 조작 */}
+        {/* viewType으로 seriesId 구분 */}
         <div className="pt-[64px] max-sm:pt-[40px]">
           {viewType === 'slide' && (
             <SeriesSlide
@@ -80,6 +80,7 @@ export default function Series() {
               limit={limit}
               totalCount={totalGridCount}
               pointColor={pointColor}
+              viewType={viewType}
             />
           )}
           {viewType === 'list' && (
@@ -90,6 +91,7 @@ export default function Series() {
               limit={limit}
               totalCount={totalListCount}
               pointColor={pointColor}
+              viewType={viewType}
             />
           )}
         </div>

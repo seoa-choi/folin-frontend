@@ -27,6 +27,7 @@ export default function SeriesList({
   limit,
   totalCount,
   pointColor,
+  viewType,
 }: {
   listSeries: ListSeries[];
   page: number;
@@ -34,6 +35,7 @@ export default function SeriesList({
   limit: number;
   totalCount: number;
   pointColor: PointColor[];
+  viewType: 'list';
 }) {
   const [totalPage, setTotalPage] = useState(0);
 
@@ -66,7 +68,7 @@ export default function SeriesList({
             className={`${isLast ? 'mb-0' : 'mb-[48px]'}`}
           >
             <Link
-              href=""
+              href={`/series/${list.proposal_id}?view=${viewType}`}
               className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0"
             >
               <div className=" w-[calc(100%-16px)] relative">

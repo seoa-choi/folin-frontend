@@ -10,13 +10,6 @@ import Pagination from '@/app/components/Pagination';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-// type SeriesSlideProps = {
-//   gridSeries: GridSeries[];
-//   page: number;
-//   limit: number;
-//   totalCount: number;
-// };
-
 type GridSeries = {
   series_title: string;
   items: {
@@ -43,6 +36,7 @@ export default function SeriesSlide({
   limit,
   totalCount,
   pointColor,
+  viewType,
 }: {
   gridSeries: GridSeries[];
   page: number;
@@ -50,6 +44,7 @@ export default function SeriesSlide({
   limit: number;
   totalCount: number;
   pointColor: PointColor[];
+  viewType: 'slide';
 }) {
   const [totalPage, setTotalPage] = useState(0);
 
@@ -115,7 +110,7 @@ export default function SeriesSlide({
                   return (
                     <SwiperSlide key={item.contents_id}>
                       <Link
-                        href=""
+                        href={`/series/${item.contents_id}?view=${viewType}`}
                         className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 pt-[16px]"
                       >
                         <div className="w-[calc(100%-16px)] h-auto">
