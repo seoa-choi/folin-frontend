@@ -132,7 +132,7 @@ export default function SeriesTab({
             />
           </button>
           <div
-            className={`w-full border border-[#00d48d] rounded-[6px] bg-white absolute left-0 top-[34px] ${
+            className={`w-[180px] border border-[#00d48d] rounded-[6px] bg-white absolute left-0 top-[34px] ${
               isBlock ? 'block' : 'hidden'
             }`}
           >

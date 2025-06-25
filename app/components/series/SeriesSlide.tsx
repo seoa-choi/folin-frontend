@@ -109,8 +109,11 @@ export default function SeriesSlide({
 
                   return (
                     <SwiperSlide key={item.contents_id}>
+                      {/* 시리즈가 아티클 묶음이기 때문에 아티클링크가 맞음 */}
+                      {/* `/article/${item.contents_id}`
+                      `/series/${item.contents_id}?view=${viewType}` */}
                       <Link
-                        href={`/series/${item.contents_id}?view=${viewType}`}
+                        href={`/article/${item.contents_id}`}
                         className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 pt-[16px]"
                       >
                         <div className="w-[calc(100%-16px)] h-auto">

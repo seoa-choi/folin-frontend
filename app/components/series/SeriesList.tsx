@@ -42,6 +42,7 @@ export default function SeriesList({
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  // 총 페이지 계산
   useEffect(() => {
     setTotalPage(Math.ceil(totalCount / limit));
   }, [totalCount, limit]);

@@ -13,6 +13,7 @@ export default function Pagination({
 }) {
   const [pageArr, setPageArr] = useState<(number | string)[]>([]);
 
+  // 페이지 배열 동기화
   useEffect(() => {
     const arr = generatePagination2(page, totalPage);
     setPageArr(arr);

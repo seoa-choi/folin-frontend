@@ -36,14 +36,14 @@ const fIcon = [
 const fooApp = [
   {
     img: '/images/app1.png',
-    txtImg: 'images/app1.svg',
+    txtImg: '/images/app1.svg',
     alt: '앱스토어',
     w: 51,
     h: 11,
   },
   {
     img: '/images/app2.png',
-    txtImg: 'images/app2.svg',
+    txtImg: '/images/app2.svg',
     alt: '구글플레이',
     w: 64,
     h: 12,

@@ -23,25 +23,13 @@ export default function SeriesItem() {
     seriesIdData();
   }, [seriesId]);
 
-  // if (!seriesData) {
-  //   return (
-  //     <div className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px] text-center">
-  //       <p>. . .</p>
-  //     </div>
-  //   );
-  // }
-
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px] ">
-      <div className="">
-        <div className="pt-[64px] max-sm:pt-[40px]">
-          {viewType === 'slide' ? (
-            <SeriesDetailSlide seriesId={seriesId} />
-          ) : (
-            <SeriesDetailList seriesId={seriesId} seriesData={seriesData} />
-          )}
-        </div>
-      </div>
+      {viewType === 'slide' ? (
+        <SeriesDetailSlide seriesId={seriesId} />
+      ) : (
+        <SeriesDetailList seriesId={seriesId} seriesData={seriesData} />
+      )}
     </main>
   );
 }

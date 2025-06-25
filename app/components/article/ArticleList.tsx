@@ -1,5 +1,11 @@
+'use client';
+
+import Pagination from '@/app/components/Pagination';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { createColorAssigner } from '@/app/_lib/colorUtils';
 
 type ArticleSeries = {
   series_title: string;
@@ -11,37 +17,69 @@ type ArticleSeries = {
   created_at: string;
 };
 
-const pointColor = [
-  { bg: 'bg-[#a45eeb]', bd: 'border-[#a45eeb]' },
-  { bg: 'bg-[#ff595f]', bd: 'border-[#ff595f]' },
-  { bg: 'bg-[#e5c58a]', bd: 'border-[#e5c58a]' },
-  { bg: 'bg-[#f2ec72]', bd: 'border-[#f2ec72]' },
-  { bg: 'bg-[#a3cfff]', bd: 'border-[#a3cfff]' },
-  { bg: 'bg-[#25aacf]', bd: 'border-[#25aacf]' },
-];
+// const pointColor = [
+//   { bg: 'bg-[#a45eeb]', bd: 'border-[#a45eeb]' },
+//   { bg: 'bg-[#ff595f]', bd: 'border-[#ff595f]' },
+//   { bg: 'bg-[#e5c58a]', bd: 'border-[#e5c58a]' },
+//   { bg: 'bg-[#f2ec72]', bd: 'border-[#f2ec72]' },
+//   { bg: 'bg-[#a3cfff]', bd: 'border-[#a3cfff]' },
+//   { bg: 'bg-[#25aacf]', bd: 'border-[#25aacf]' },
+// ];
 
-// 시리즈 타이틀별 색상 매핑 객체
-const seriesColorMap: { [key: string]: { bg: string; bd: string } } = {};
-let colorIndex = 0;
+// // 시리즈 타이틀별 색상 매핑 객체
+// const seriesColorMap: { [key: string]: { bg: string; bd: string } } = {};
+// let colorIndex = 0;
 
-function getColorForSeries(seriesTitle: string) {
-  if (!seriesColorMap[seriesTitle]) {
-    // 아직 매핑되지 않은 시리즈면 새로운 색상 할당
-    seriesColorMap[seriesTitle] = pointColor[colorIndex % pointColor.length];
-    colorIndex++;
-  }
-  return seriesColorMap[seriesTitle];
-}
+// function getColorForSeries(seriesTitle: string) {
+//   if (!seriesColorMap[seriesTitle]) {
+//     // 아직 매핑되지 않은 시리즈면 새로운 색상 할당
+//     seriesColorMap[seriesTitle] = pointColor[colorIndex % pointColor.length];
+//     colorIndex++;
+//   }
+//   return seriesColorMap[seriesTitle];
+// }
 
 export default function ArticleList({
   articleSeries,
   limit,
   totalCount,
+  page,
+  setPage,
 }: {
   articleSeries: ArticleSeries[];
   limit: number;
   totalCount: number;
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
 }) {
+  const [totalPage, setTotalPage] = useState(0);
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // 색상 매핑 함수 호출
+  const getColorForSeries = createColorAssigner();
+
+  useEffect(() => {
+    setTotalPage(Math.ceil(totalCount / limit));
+  }, [totalCount, limit]);
+
+  // page 쿼리스트링 업데이트
+  function handlePageChange(newPage: number) {
+    const params = new URLSearchParams(searchParams.toString());
+    // 기존 searchParams를 복사 params로 새로운 URLSearchParams 객체만듦
+    params.set('page', newPage.toString());
+    // url 업데이트, 페이지 반영
+    router.push(`?${params.toString()}`);
+
+    // 내부 상태 바꾸기
+    setPage(newPage);
+  }
+
+  // searchParams read-only 객체,
+  // .get()으로 값을 읽을 수 있으나 .set()이나 .delete() 같은 수정은 직접 못함
+  // 수정 가능한 복사본 만들어서 처리하기
+
   // 시리즈별 전체 개수 세기
   const seriesCountMap: { [key: string]: number } = {};
   articleSeries.forEach((item) => {
@@ -69,12 +107,13 @@ export default function ArticleList({
       <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1 max-sm:gap-0">
         {indexedArticleSeries.map((item) => {
           const color = getColorForSeries(item.series_title);
+
           // console.log(indexedArticleSeries);
 
           return (
             <li key={item.contents_id}>
               <Link
-                href=""
+                href={`/article/${item.contents_id}`}
                 className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 pt-[16px]"
               >
                 <div className="w-[calc(100%-16px)] h-auto">
@@ -115,6 +154,11 @@ export default function ArticleList({
           );
         })}
       </ul>
+      <Pagination
+        page={page}
+        totalPage={totalPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }
