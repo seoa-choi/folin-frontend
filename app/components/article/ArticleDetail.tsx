@@ -21,8 +21,8 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
       const res = await fetch(`http://localhost:3001/article/${articleId}`);
       if (!res.ok) throw new Error('Failed to fetch article data');
       const json = await res.json();
-      // console.log(json);
-      return json.articleResult;
+      console.log(json);
+      return json;
     },
   });
 

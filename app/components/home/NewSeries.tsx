@@ -26,14 +26,14 @@ type SeriesData = {
   }[];
 };
 export default function NewSeries() {
-  const params = useParams();
-
-  const articleId = params.seriesId as string;
+  // /(main) 페이지는 articleId가 없기 때문에 undefined가 나옴, 데이터를 articleId주소로 갖고와야 해서, article/[articleId] 라우터일때만 유효
+  // const params = useParams();  - 라우터 :id 가져왔다가->메인으로 분리해서 처리했음
+  // const articleId = params.articleId as string;
 
   const { data, isLoading, isError } = useQuery<SeriesData>({
-    queryKey: ['article', articleId],
+    queryKey: ['article'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3001/article/${articleId}`);
+      const res = await fetch(`http://localhost:3001/article/main`);
       if (!res.ok) throw new Error('Failed to fetch series data');
       const json = await res.json();
       // console.log(json);
@@ -50,12 +50,11 @@ export default function NewSeries() {
 
   if (!data) return null;
 
+  // contents_id로 연결하면 이동 함
   const articleItem = data.articleResult[3];
   const resultItem = data.result[0];
 
   const reversedItems = data.articleResult.slice(0, 3).reverse();
-
-  // Link변수 처리 해야 함
 
   return (
     <div>
@@ -63,7 +62,10 @@ export default function NewSeries() {
         {/* 1200기준 왼 */}
         <div className="w-[calc(50%-12px)] max-md:w-full">
           <div className="relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0">
-            <Link href={`/article/${articleId}`} className="block h-full">
+            <Link
+              href={`/article/${articleItem.contents_id}`}
+              className="block h-full"
+            >
               <div className="w-[calc(100%-16px)] h-auto">
                 <div className="absolute left-[10px] top-[10px]">
                   <Image
@@ -111,7 +113,7 @@ export default function NewSeries() {
                     className="bg-white py-[8px] px-[10px] rounded-[6px] mb-[4px] relative nth-[3]:-translate-x-[16px] max-md:nth-[3]:hidden"
                   >
                     <Link
-                      href={`/article/${articleId}`}
+                      href={`/article/${item.contents_id}`}
                       className="flex gap-[8px] items-center"
                     >
                       <span className="bg-white border border-[#a45eeb] rounded-[6px] py-[6px] px-[8px] text-[12px] font-bold ">
@@ -154,7 +156,7 @@ export default function NewSeries() {
                 className="w-full h-full object-cover"
               />
             </h3>
-            <Link href={`/article/${articleId}`}>
+            <Link href={`/article/${articleItem.contents_id}`}>
               <h4 className="text-[28px] mb-[8px] font-bold">
                 {articleItem.series_title}
               </h4>
@@ -173,7 +175,7 @@ export default function NewSeries() {
                   className="bg-white py-[8px] px-[10px] rounded-[6px] mb-[4px] relative nth-[3]:-translate-x-[16px] duration-[0.3s] hover:-translate-x-[16px] hover:nth-[3]:-translate-x-[32px] group"
                 >
                   <Link
-                    href={`/article/${articleId}`}
+                    href={`/article/${item.contents_id}`}
                     className="flex gap-[8px] items-center"
                   >
                     <span className="bg-white border border-[#a45eeb] rounded-[6px] py-[6px] px-[8px] text-[12px] font-bold ">

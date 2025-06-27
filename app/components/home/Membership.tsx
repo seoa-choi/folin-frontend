@@ -10,7 +10,7 @@ export default function Membership({ isSticky }: { isSticky: boolean }) {
           : 'relative bottom-[-4px] max-md:bottom-0'
       } max-w-[1200px] mx-auto text-center bg-[#00d48d] rounded-[6px] left-0  z-10 max-md:rounded-none`}
     >
-      <Link href="" className="block py-[18px] px-[2px] ">
+      <Link href="/register" className="block py-[18px] px-[2px] ">
         <div className="mb-[4px]">
           <Image
             src="/images/membership.png"
