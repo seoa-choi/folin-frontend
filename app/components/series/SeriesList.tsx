@@ -4,6 +4,7 @@ import Pagination from '@/app/components/Pagination';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { pointColor } from '@/app/_lib/colorUtils';
 
 type ListSeries = {
   series_title: string;
@@ -14,19 +15,13 @@ type ListSeries = {
   for_whom3: string;
 };
 
-type PointColor = {
-  bg: string;
-  bd: string;
-};
-[];
-
 export default function SeriesList({
   listSeries,
   page,
   setPage,
   limit,
   totalCount,
-  pointColor,
+  // pointColor,
   viewType,
 }: {
   listSeries: ListSeries[];
@@ -34,7 +29,7 @@ export default function SeriesList({
   setPage: Dispatch<SetStateAction<number>>;
   limit: number;
   totalCount: number;
-  pointColor: PointColor[];
+  // pointColor: PointColor[];
   viewType: 'list';
 }) {
   const [totalPage, setTotalPage] = useState(0);

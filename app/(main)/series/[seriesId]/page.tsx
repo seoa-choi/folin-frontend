@@ -18,7 +18,7 @@ export default function SeriesItem() {
     async function seriesIdData() {
       const res = await fetch(`http://localhost:3001/series/${seriesId}`);
       const data = await res.json();
-      setSeriesData(data);
+      setSeriesData(data.result);
     }
     seriesIdData();
   }, [seriesId]);

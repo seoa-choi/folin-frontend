@@ -11,17 +11,9 @@ import NextSeminar from '@/app/components/home/NextSeminar';
 import SeminarBar from '@/app/components/home/SeminarBar';
 import SeriesInside from '@/app/components/home/SeriesInside';
 import WideSlider from '@/app/components/home/WideSlider';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Home() {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      AOS.init();
-    }
-  }, []);
-
   const [isClosed, setIsClosed] = useState(false);
 
   function handleClose(e?: React.MouseEvent<HTMLButtonElement>) {

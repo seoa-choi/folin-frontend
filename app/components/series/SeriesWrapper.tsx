@@ -5,15 +5,7 @@ import SeriesSlide from '@/app/components/series/SeriesSlide';
 import SeriesTab from '@/app/components/series/SeriesTab';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-
-const pointColor = [
-  { bg: 'bg-[#a45eeb]', bd: 'border-[#a45eeb]' },
-  { bg: 'bg-[#ff595f]', bd: 'border-[#ff595f]' },
-  { bg: 'bg-[#e5c58a]', bd: 'border-[#e5c58a]' },
-  { bg: 'bg-[#f2ec72]', bd: 'border-[#f2ec72]' },
-  { bg: 'bg-[#a3cfff]', bd: 'border-[#a3cfff]' },
-  { bg: 'bg-[#25aacf]', bd: 'border-[#25aacf]' },
-];
+// import { pointColor } from '@/app/_lib/colorUtils';
 
 type SeriesTab = {
   series_id: number;
@@ -102,7 +94,7 @@ export default function SeriesWrapper({
             setPage={setPage}
             limit={limit}
             totalCount={totalGridCount}
-            pointColor={pointColor}
+            // pointColor={pointColor}
             viewType={viewType}
           />
         )}
@@ -113,7 +105,7 @@ export default function SeriesWrapper({
             setPage={setPage}
             limit={limit}
             totalCount={totalListCount}
-            pointColor={pointColor}
+            // pointColor={pointColor}
             viewType={viewType}
           />
         )}

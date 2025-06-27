@@ -17,28 +17,6 @@ type ArticleSeries = {
   created_at: string;
 };
 
-// const pointColor = [
-//   { bg: 'bg-[#a45eeb]', bd: 'border-[#a45eeb]' },
-//   { bg: 'bg-[#ff595f]', bd: 'border-[#ff595f]' },
-//   { bg: 'bg-[#e5c58a]', bd: 'border-[#e5c58a]' },
-//   { bg: 'bg-[#f2ec72]', bd: 'border-[#f2ec72]' },
-//   { bg: 'bg-[#a3cfff]', bd: 'border-[#a3cfff]' },
-//   { bg: 'bg-[#25aacf]', bd: 'border-[#25aacf]' },
-// ];
-
-// // 시리즈 타이틀별 색상 매핑 객체
-// const seriesColorMap: { [key: string]: { bg: string; bd: string } } = {};
-// let colorIndex = 0;
-
-// function getColorForSeries(seriesTitle: string) {
-//   if (!seriesColorMap[seriesTitle]) {
-//     // 아직 매핑되지 않은 시리즈면 새로운 색상 할당
-//     seriesColorMap[seriesTitle] = pointColor[colorIndex % pointColor.length];
-//     colorIndex++;
-//   }
-//   return seriesColorMap[seriesTitle];
-// }
-
 export default function ArticleList({
   articleSeries,
   limit,

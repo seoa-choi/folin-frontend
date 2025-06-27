@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Pagination from '@/app/components/Pagination';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { pointColor } from '@/app/_lib/colorUtils';
 
 type GridSeries = {
   series_title: string;
@@ -23,11 +24,11 @@ type GridSeries = {
   }[];
 };
 
-type PointColor = {
-  bg: string;
-  bd: string;
-};
-[];
+// type PointColor = {
+//   bg: string;
+//   bd: string;
+// };
+// [];
 
 export default function SeriesSlide({
   gridSeries,
@@ -35,7 +36,7 @@ export default function SeriesSlide({
   setPage,
   limit,
   totalCount,
-  pointColor,
+  // pointColor,
   viewType,
 }: {
   gridSeries: GridSeries[];
@@ -43,7 +44,7 @@ export default function SeriesSlide({
   setPage: Dispatch<SetStateAction<number>>;
   limit: number;
   totalCount: number;
-  pointColor: PointColor[];
+  // pointColor: PointColor[];
   viewType: 'slide';
 }) {
   const [totalPage, setTotalPage] = useState(0);
@@ -123,6 +124,7 @@ export default function SeriesSlide({
                               alt={item.series_title}
                               width={368}
                               height={276}
+                              priority
                               className="w-full h-full object-cover rounded-[6px]"
                             />
                           </div>

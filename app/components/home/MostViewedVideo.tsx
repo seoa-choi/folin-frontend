@@ -129,7 +129,7 @@ export default function MostViewedVideo() {
           {videos.map((item, i) => (
             <SwiperSlide key={i}>
               <Link
-                href=""
+                href="/video"
                 className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 pt-[16px]"
               >
                 <div className="w-[calc(100%-16px)] h-auto">

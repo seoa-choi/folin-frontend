@@ -26,6 +26,8 @@ export default function SeriesDetailList({
     (item) => String(item.proposal_id) === seriesId
   );
 
+  console.log(seriesData);
+
   // const date = new Date('2025-06-25T03:06:00Z');
   // console.log(date.getFullYear()); // 2025
   // console.log(date.getMonth() + 1); // 6 (0부터 시작하니까 1을 더해줘야 6월)
