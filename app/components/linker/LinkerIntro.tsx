@@ -128,23 +128,25 @@ export default function LinkerIntro() {
         handleOccupationChange={handleOccupationChange}
       />
       <div className="my-[104px] w-[486px] h-[486px] mx-auto relative max-md:my-[72px] max-md:w-[386px] max-md:h-[386px] max-[800px]:h-auto max-[420px]:w-full max-[420px]:h-auto">
-        <Link
-          href=""
-          className={`block relative w-full h-full overflow-hidden rounded-[100%] ${randomBg.bg}`}
-        >
-          {filteredLinkers.map((item) => (
+        {filteredLinkers.map((item) => (
+          <Link
+            key={item.linker_id}
+            href={`/linker/${item.linker_id}`}
+            className={`block relative w-full h-full overflow-hidden rounded-[100%] ${
+              randomBg.bg
+            } ${item.linker_id === randomId ? 'block' : 'hidden'}`}
+          >
             <Image
-              key={item.linker_id}
               // 서버 퍼블릭
               src={`http://localhost:3001/${item.image_url}`}
               alt={item.author}
               width={972}
               height={972}
               priority
-              className={` ${item.linker_id === randomId ? 'block' : 'hidden'}`}
+              className={``}
             />
-          ))}
-        </Link>
+          </Link>
+        ))}
         {filteredLinkers
           .filter((item) => item.linker_id === randomId)
           .map((item) => (
@@ -162,7 +164,7 @@ export default function LinkerIntro() {
         {noComment.map((item) => (
           <li key={item.linker_id} className="w-[calc(100%-16px)]">
             <Link
-              href=""
+              href={`/linker/${item.linker_id}`}
               className="flex flex-col items-center text-center gap-[16px_0]"
             >
               <Image
