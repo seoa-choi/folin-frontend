@@ -13,7 +13,7 @@ export function createColorAssigner() {
   const seriesColorMap: { [key: string]: { bg: string; bd: string } } = {};
   let colorIndex = 0;
 
-  return function getColorForSeries(seriesTitle: string) {
+  return function getColorForSeries(seriesTitle: string | number) {
     if (!seriesColorMap[seriesTitle]) {
       seriesColorMap[seriesTitle] = pointColor[colorIndex % pointColor.length];
       colorIndex++;

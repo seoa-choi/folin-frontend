@@ -140,7 +140,7 @@ export default function SeriesTab({
               <button
                 key={ops.value}
                 type="button"
-                className={`w-full text-left text-[12px] h-[32px] bg-transparent p-[0_16px_0_12px] flex items-center gap-[4px] before:block before:w-[16px] before:h-[16px] before:bg-[url('/images/checked.png')] before:bg-no-repeat before:bg-cover ${
+                className={`w-full text-left text-[12px] h-[32px] bg-transparent p-[0_16px_0_12px] flex items-center gap-[4px] before:block before:w-[16px] before:h-[16px] before:bg-[url('/images/checkbox_g.png')] before:bg-no-repeat before:bg-cover ${
                   sortOption === ops.label ? 'before:block' : 'before:hidden'
                 }`}
                 onClick={() => handleSortOption(ops.label)}

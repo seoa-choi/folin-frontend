@@ -36,16 +36,16 @@ export default function SeriesSlide({
   setPage,
   limit,
   totalCount,
-  // pointColor,
-  viewType,
-}: {
+}: // pointColor,
+// viewType,
+{
   gridSeries: GridSeries[];
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
   limit: number;
   totalCount: number;
   // pointColor: PointColor[];
-  viewType: 'slide';
+  // viewType: 'slide';
 }) {
   const [totalPage, setTotalPage] = useState(0);
 

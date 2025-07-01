@@ -85,7 +85,6 @@ export default function ArticleList({
       <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1 max-sm:gap-0">
         {indexedArticleSeries.map((item) => {
           const color = getColorForSeries(item.series_title);
-
           // console.log(indexedArticleSeries);
 
           return (

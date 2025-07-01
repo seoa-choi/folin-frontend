@@ -95,18 +95,19 @@ export default function SeriesWrapper({
             limit={limit}
             totalCount={totalGridCount}
             // pointColor={pointColor}
-            viewType={viewType}
+            // viewType={viewType}
           />
         )}
         {viewType === 'list' && (
           <SeriesList
             listSeries={listSeries}
+            gridSeries={gridSeries}
             page={page}
             setPage={setPage}
             limit={limit}
             totalCount={totalListCount}
             // pointColor={pointColor}
-            viewType={viewType}
+            // viewType={viewType}
           />
         )}
       </div>

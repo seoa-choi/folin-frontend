@@ -1,35 +1,39 @@
 'use client';
 
-import SeriesDetailList from '@/app/components/series/SeriesDetailList';
-import SeriesDetailSlide from '@/app/components/series/SeriesDetailSlide';
-import { useParams, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import SeriesDetail from '@/app/components/series/SeriesDetail';
+import { useQuery } from '@tanstack/react-query';
+import { use } from 'react';
 
-export default function SeriesItem() {
-  const params = useParams();
-  const searchParams = useSearchParams();
-  const viewType = searchParams.get('view') || 'slide';
-
-  const seriesId = params.seriesId as string;
-
-  const [seriesData, setSeriesData] = useState<any>(null);
-
-  useEffect(() => {
-    async function seriesIdData() {
+export default function SeriesItem({
+  params,
+}: {
+  params: Promise<{ seriesId: string }>;
+}) {
+  const { seriesId } = use(params);
+  const {
+    data: seriesData,
+    isPending,
+    isError,
+  } = useQuery({
+    queryKey: ['series', seriesId],
+    queryFn: async () => {
       const res = await fetch(`http://localhost:3001/series/${seriesId}`);
+      if (!res.ok) throw new Error('Failed data');
       const data = await res.json();
-      setSeriesData(data.result);
-    }
-    seriesIdData();
-  }, [seriesId]);
+      // console.log('api', data);
+      return data;
+    },
+  });
+
+  if (isPending) return <p className="text-center pt-[54px]">로딩 중 ..</p>;
+  if (isError)
+    return (
+      <p className="text-center pt-[54px]">데이터를 불러오지 못했습니다.</p>
+    );
 
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px] ">
-      {viewType === 'slide' ? (
-        <SeriesDetailSlide seriesId={seriesId} />
-      ) : (
-        <SeriesDetailList seriesId={seriesId} seriesData={seriesData} />
-      )}
+      <SeriesDetail seriesId={seriesId} seriesData={seriesData} />
     </main>
   );
 }

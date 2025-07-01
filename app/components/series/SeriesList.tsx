@@ -15,22 +15,37 @@ type ListSeries = {
   for_whom3: string;
 };
 
+type GridSeries = {
+  series_title: string;
+  items: {
+    contents_id: number;
+    series_title: string;
+    sub_title: string;
+    linkers: string;
+    img_url: string;
+    content_type: string;
+    created_at: string;
+  }[];
+};
+
 export default function SeriesList({
   listSeries,
   page,
   setPage,
   limit,
   totalCount,
-  // pointColor,
-  viewType,
-}: {
+  gridSeries,
+}: // pointColor,
+// viewType,
+{
   listSeries: ListSeries[];
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
   limit: number;
   totalCount: number;
+  gridSeries: GridSeries[];
   // pointColor: PointColor[];
-  viewType: 'list';
+  // viewType: 'list';
 }) {
   const [totalPage, setTotalPage] = useState(0);
 
@@ -58,13 +73,20 @@ export default function SeriesList({
         const color = pointColor[i % pointColor.length];
         const isLast = i === listSeries.length - 1;
 
+        // gridSeries 배열에서 list 항목과 series_title이 같은 걸 찾아서 그 안의 items.legnth를 가져와, 못찾거나 없으면 0
+        const seriesLength =
+          gridSeries.find((series) => series.series_title === list.series_title)
+            ?.items.length || 0;
+        // console.log(seriesLength);
+
         return (
           <div
             key={list.series_title}
             className={`${isLast ? 'mb-0' : 'mb-[48px]'}`}
           >
+            {/* `/series/${list.proposal_id}?view=${viewType}` */}
             <Link
-              href={`/series/${list.proposal_id}?view=${viewType}`}
+              href={`/series/${list.proposal_id}`}
               className="block h-full relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0"
             >
               <div className=" w-[calc(100%-16px)] relative">
@@ -77,7 +99,7 @@ export default function SeriesList({
                   <div
                     className={`bg-white border rounded-[6px] py-[8px] px-[12px] text-[15px] font-bold ${color.bd}`}
                   >
-                    {'총' + listSeries.length + '화'}
+                    {`총 ${seriesLength}화`}
                   </div>
                 </div>
 
