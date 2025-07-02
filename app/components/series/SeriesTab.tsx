@@ -24,10 +24,12 @@ export default function SeriesTab({
   seriesTab,
   handleChangeComponent,
   setPage,
+  viewType,
 }: {
   seriesTab: SeriesTab[];
   handleChangeComponent?: (viewType: 'slide' | 'list') => void;
   setPage?: Dispatch<SetStateAction<number>>;
+  viewType: 'slide' | 'list';
 }) {
   const pathname = usePathname();
 
@@ -67,6 +69,15 @@ export default function SeriesTab({
   function handleChangeView(selectedImg: string) {
     setViewMode(selectedImg);
   }
+
+  // 뷰타입 반영 img
+  useEffect(() => {
+    if (viewType === 'list') {
+      setViewMode('/images/list_g.png');
+    } else {
+      setViewMode('/images/grid_g.png');
+    }
+  }, [viewType]);
 
   // 현재 브라우저 주소에 해당하는 탭을 자동으로 골라서 액티브 처리
   useEffect(() => {

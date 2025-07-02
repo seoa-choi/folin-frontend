@@ -5,7 +5,6 @@ import SeriesSlide from '@/app/components/series/SeriesSlide';
 import SeriesTab from '@/app/components/series/SeriesTab';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-// import { pointColor } from '@/app/_lib/colorUtils';
 
 type SeriesTab = {
   series_id: number;
@@ -51,10 +50,23 @@ export default function SeriesWrapper({
 }) {
   const seriesData = initialData;
   const [page, setPage] = useState(initialPage);
+
+  // 페이지 렌더링될 때 URL에서 파라미터 값 가져옴, 읽기전용
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [viewType, setViewType] = useState<'slide' | 'list'>('slide');
+  // useSearchParams()가 반환한 객체에서 viewType 쿼리를 꺼내오는 메서드
+  // 예: URL이 ?viewType=list라면  searchParams.get('viewType') === 'list'
+  //  initialType - 위에서 꺼낸 viewType 값이 'list'이면 그대로 'list', 아니면 기본값으로 'slide'로 설정
+
+  //  useSearchParams()  현재 URL 쿼리 읽기용 React 훅
+  //  searchParams.get()  특정 쿼리값 추출 (viewType)
+  //  initialType  쿼리 값으로 결정한 초기 상태값 (string)
+  //  useState(initialType)  초기값 기반으로 실제 상태 생성
+
+  const initialType =
+    searchParams.get('viewType') === 'list' ? 'list' : 'slide';
+  const [viewType, setViewType] = useState<'slide' | 'list'>(initialType);
 
   const {
     seriesTab,
@@ -72,10 +84,10 @@ export default function SeriesWrapper({
     setPage(1);
 
     const params = new URLSearchParams(searchParams.toString());
+    params.set('viewType', type);
     params.delete('page');
     router.push(`?${params.toString()}`);
   }
-  // 뒤로가기 처리 해야함
 
   return (
     <>
@@ -83,6 +95,7 @@ export default function SeriesWrapper({
         seriesTab={seriesTab}
         handleChangeComponent={handleChangeComponent}
         setPage={setPage}
+        viewType={viewType}
       />
       {/* 뷰 스타일 - 그리드, 리스트 시리즈탭 버튼 조작 */}
       {/* viewType으로 seriesId 구분 */}
