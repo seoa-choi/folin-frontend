@@ -87,7 +87,7 @@ export default function Articles({
   }
 
   return (
-    <main className="p-[30px]">
+    <main className="p-[54px]">
       <h2 className="text-[26px] font-bold mb-[20px]">뉴스 기사</h2>
       <form onSubmit={handleSearch} className="flex gap-x-[10px]">
         <input

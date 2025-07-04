@@ -52,6 +52,7 @@ export default function Header() {
   const [windowWidth, setWindowWidth] = useState(0);
   // 클라이언트에서만 변경
   const [isMobile, setIsMobile] = useState(false);
+
   // 창 크기 변경 시 값을 저장
   function handleResize() {
     setWindowWidth(window.innerWidth);
@@ -144,7 +145,7 @@ export default function Header() {
               ) : (
                 <Image
                   src="/images/close.png"
-                  alt="검색"
+                  alt="닫기"
                   width={32}
                   height={32}
                 />
@@ -152,7 +153,12 @@ export default function Header() {
             </button>
           </div>
         </nav>
-        {isSearchOpen && <SearchMenu setIsSearchOpen={setIsSearchOpen} />}
+        {isSearchOpen && (
+          <SearchMenu
+            setIsSearchOpen={setIsSearchOpen}
+            handleSearchBar={handleSearchBar}
+          />
+        )}
       </div>
     </header>
   );

@@ -57,6 +57,8 @@ const icons = [
   },
 ];
 
+// 분기점 수정 할거 확인 할것
+
 export default function ArticleDetail({ articleId }: { articleId: string }) {
   // 아이콘 마우스오버 액티브
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
@@ -120,7 +122,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">
       {filteredId?.map((item, i) => (
-        <div key={i} className="w-[588px] pt-[64px] mx-auto">
+        <div key={i} className="w-[588px] pt-[64px] mx-auto max-sm:w-full">
           <div className="mb-[64px]">
             <div className="flex gap-[2px]">
               <div

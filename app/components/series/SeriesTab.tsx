@@ -29,7 +29,7 @@ export default function SeriesTab({
   seriesTab: SeriesTab[];
   handleChangeComponent?: (viewType: 'slide' | 'list') => void;
   setPage?: Dispatch<SetStateAction<number>>;
-  viewType: 'slide' | 'list';
+  viewType?: 'slide' | 'list';
 }) {
   const pathname = usePathname();
 
