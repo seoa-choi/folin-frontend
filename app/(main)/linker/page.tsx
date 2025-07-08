@@ -2,7 +2,7 @@ import LinkerIntro from '@/app/components/linker/LinkerIntro';
 
 export default function Linker() {
   async function getLinker() {
-    const res = await fetch('http://localhost:3001/linker');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/linker`);
 
     if (!res.ok) {
       throw new Error('Failed to fetch data');

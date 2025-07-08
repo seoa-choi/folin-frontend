@@ -7,8 +7,11 @@ export default async function Series({
   searchParams: { page?: string };
 }) {
   const page = Number(searchParams.page) || 1;
+  // `http://localhost:3001/series?page=${page}`
 
-  const res = await fetch(`http://localhost:3001/series?page=${page}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/series?page=${page}`
+  );
   const seriesData = await res.json();
 
   // const seriesData = use(

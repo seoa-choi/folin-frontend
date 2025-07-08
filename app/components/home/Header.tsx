@@ -153,12 +153,7 @@ export default function Header() {
             </button>
           </div>
         </nav>
-        {isSearchOpen && (
-          <SearchMenu
-            setIsSearchOpen={setIsSearchOpen}
-            handleSearchBar={handleSearchBar}
-          />
-        )}
+        {isSearchOpen && <SearchMenu handleSearchBar={handleSearchBar} />}
       </div>
     </header>
   );

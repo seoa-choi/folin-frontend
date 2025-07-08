@@ -17,7 +17,10 @@ export default function SeriesItem({
   } = useQuery({
     queryKey: ['series', seriesId],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3001/series/${seriesId}`);
+      // `http://localhost:3001/series/${seriesId}`
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/series${seriesId}`
+      );
       if (!res.ok) throw new Error('Failed data');
       const data = await res.json();
       // console.log('api', data);

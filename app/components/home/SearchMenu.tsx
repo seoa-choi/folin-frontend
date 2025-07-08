@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const SearchMenus = [
   { menu: '마케팅' },
@@ -15,10 +15,8 @@ const SearchMenus = [
   { menu: '공간' },
 ];
 export default function SearchMenu({
-  setIsSearchOpen,
   handleSearchBar,
 }: {
-  setIsSearchOpen: Dispatch<SetStateAction<boolean>>;
   handleSearchBar: () => void;
 }) {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -34,23 +32,6 @@ export default function SearchMenu({
     }
     setHasInput(false);
   }
-
-  // useEffect(() => {
-  //   function handleClickOutside(e: MouseEvent) {
-  //     if (!e.target) return;
-  //     if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-  //       setIsSearchOpen(false);
-  //     }
-  //   }
-
-  //   // 서버 실행 방지
-  //   if (typeof window !== 'undefined') {
-  //     document.addEventListener('mousedown', handleClickOutside);
-  //     return () => {
-  //       document.removeEventListener('mousedown', handleClickOutside);
-  //     };
-  //   }
-  // }, []);
 
   return (
     <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]">

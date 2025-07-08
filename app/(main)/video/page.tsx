@@ -8,7 +8,7 @@ export default function video() {
 
   useEffect(() => {
     async function getVideo() {
-      const res = await fetch(`http://localhost:3001/video`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/video`);
       const data = await res.json();
       setVideoData(data);
       // console.log(data);

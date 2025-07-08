@@ -178,7 +178,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
           {item.detail.sentence1 && (
             <div className="p-[24px_0] mb-[64px] border-t border-b border-[#00d48d]">
               <h3 className="mb-[8px] text-[13px] font-bold">3줄 요약</h3>
-              <ul className="list-disc flex flex-col gap-[12px] ml-[13px]">
+              <ul className="list-disc flex flex-col gap-[12px] ml-[13px] px-[8px]">
                 <li>{item.detail.sentence1}</li>
                 <li>{item.detail.sentence2}</li>
                 <li>{item.detail.sentence3}</li>

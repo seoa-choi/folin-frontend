@@ -8,7 +8,10 @@ export default async function Article({
   const { page } = await searchParams;
   const pageNumber = Number(page) || 1;
 
-  const res = await fetch(`http://localhost:3001/article?page=${page}`);
+  // `http://localhost:3001/article?page=${page}`
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/article?page=${page}`
+  );
   if (!res.ok) throw new Error('Failed to fetch');
   const articleData = await res.json();
 
