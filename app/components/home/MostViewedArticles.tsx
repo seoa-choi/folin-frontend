@@ -191,7 +191,7 @@ export default function MostViewedArticles() {
                   <div className="w-[calc(100%-16px)] h-auto">
                     <div>
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_URL}/${article.img_url}`}
+                        src={`http://localhost:3001//${article.img_url}`}
                         alt={article.series_title}
                         width={368}
                         height={276}

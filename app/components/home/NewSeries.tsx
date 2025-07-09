@@ -79,7 +79,7 @@ export default function NewSeries() {
                 </div>
                 <div>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL}/${articleItem.img_url}`}
+                    src={`http://localhost:3001/${articleItem.img_url}`}
                     alt={articleItem.sub_title}
                     width={800}
                     height={600}
