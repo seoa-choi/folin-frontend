@@ -1,18 +1,17 @@
 import SeriesWrapper from '@/app/components/series/SeriesWrapper';
-import { Suspense, use } from 'react';
+import { Suspense } from 'react';
 
 export default async function Series({
   searchParams,
 }: {
   searchParams: Promise<{ page?: string }>;
 }) {
-  const { page } = use(searchParams);
+  const { page } = await searchParams;
   const pageNum = Number(page) || 1;
-
   // `http://localhost:3001/series?page=${page}`
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/series?page=${pageNum}`
+    `${process.env.NEXT_PUBLIC_API_URL}/series?page=${page}`
   );
   const seriesData = await res.json();
 
