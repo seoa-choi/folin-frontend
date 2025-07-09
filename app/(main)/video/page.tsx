@@ -5,7 +5,7 @@ type SeriesTab = {
   tit: string;
 };
 
-type VideoItem = {};
+type VideoItem = unknown;
 
 type VideoDb = {
   seriesTab: SeriesTab[];

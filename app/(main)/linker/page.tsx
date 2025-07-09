@@ -10,7 +10,7 @@ export default function Linker() {
     return res.json();
   }
   const data = getLinker();
-  // console.log(data);
+  console.log(data);
   // promise 해제
   // const linkers = use(data);
   // console.log(linkers);
