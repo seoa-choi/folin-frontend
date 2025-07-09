@@ -31,8 +31,11 @@ export default function NewSeries() {
 
   const { data, isLoading, isError } = useQuery<SeriesData>({
     queryKey: ['article'],
+
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3001/article/main`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/article/main`
+      );
       if (!res.ok) throw new Error('Failed to fetch series data');
       const json = await res.json();
       // console.log(json);
@@ -76,7 +79,7 @@ export default function NewSeries() {
                 </div>
                 <div>
                   <Image
-                    src={`http://localhost:3001/${articleItem.img_url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/${articleItem.img_url}`}
                     alt={articleItem.sub_title}
                     width={800}
                     height={600}

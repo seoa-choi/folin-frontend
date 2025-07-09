@@ -65,7 +65,9 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
   const { data, isLoading, isError } = useQuery<ArticleData[]>({
     queryKey: ['article', articleId],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3001/article/${articleId}`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/article/${articleId}`
+      );
       if (!res.ok) throw new Error('Failed to fetch article data');
       const json = await res.json();
       // console.log(json);
@@ -163,7 +165,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
               {item.linkers.map((linker) => (
                 <Link href="" key={linker.linker_id} className="flex gap-[4px]">
                   <Image
-                    src={`http://localhost:3001/${linker.image_url}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/${linker.image_url}`}
                     alt={linker.author}
                     width={32}
                     height={32}
@@ -191,7 +193,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
             </h3>
             <figure className="mt-[36px]">
               <Image
-                src={`http://localhost:3001/${item.img_url}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}/${item.img_url}`}
                 alt={!item.detail.p ? item.sub_title : item.detail.p}
                 width={572}
                 height={429}

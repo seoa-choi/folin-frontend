@@ -67,7 +67,7 @@ export default function LinkerIntro() {
     // 직군 필터 추가
     query.set('occupation', occupation);
 
-    fetch(`http://localhost:3001/linker?${query.toString()}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/linker?${query.toString()}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Server Error: ${res.status}`);
@@ -138,7 +138,7 @@ export default function LinkerIntro() {
           >
             <Image
               // 서버 퍼블릭
-              src={`http://localhost:3001/${item.image_url}`}
+              src={`${process.env.NEXT_PUBLIC_API_URL}/${item.image_url}`}
               alt={item.author}
               width={972}
               height={972}
@@ -168,7 +168,7 @@ export default function LinkerIntro() {
               className="flex flex-col items-center text-center gap-[16px_0]"
             >
               <Image
-                src={`http://localhost:3001/${item.image_url}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}/${item.image_url}`}
                 alt={item.author}
                 width={96}
                 height={96}

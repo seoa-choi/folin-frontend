@@ -120,7 +120,7 @@ export default function SeriesSlide({
                         <div className="w-[calc(100%-16px)] h-auto">
                           <div>
                             <Image
-                              src={`http://localhost:3001/${item.img_url}`}
+                              src={`${process.env.NEXT_PUBLIC_API_URL}/${item.img_url}`}
                               alt={item.series_title}
                               width={368}
                               height={276}

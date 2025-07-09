@@ -95,8 +95,9 @@ export default function ArticleList({
               >
                 <div className="w-[calc(100%-16px)] h-auto">
                   <div>
+                    {/* `http://localhost:3001/${item.img_url}` */}
                     <Image
-                      src={`http://localhost:3001/${item.img_url}`}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}/${item.img_url}`}
                       alt={item.series_title}
                       width={368}
                       height={276}

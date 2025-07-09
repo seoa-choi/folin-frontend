@@ -109,7 +109,9 @@ export default function MostViewedArticles() {
   const { data, isLoading, isError } = useQuery<SeriesData>({
     queryKey: ['article'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3001/article/main`);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/article/main`
+      );
       if (!res.ok) throw new Error('Failed to fetch series data');
       const json = await res.json();
       console.log(json);
@@ -189,7 +191,7 @@ export default function MostViewedArticles() {
                   <div className="w-[calc(100%-16px)] h-auto">
                     <div>
                       <Image
-                        src={`http://localhost:3001//${article.img_url}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}/${article.img_url}`}
                         alt={article.series_title}
                         width={368}
                         height={276}
