@@ -153,7 +153,7 @@ export default function SeriesDetail({
                   <div className="w-[calc(100%-16px)] h-auto">
                     <div>
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_URL}/${it.img_url}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${it.img_url}`}
                         alt={it.sub_title}
                         width={368}
                         height={276}
