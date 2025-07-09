@@ -1,16 +1,18 @@
 import SeriesWrapper from '@/app/components/series/SeriesWrapper';
-import { Suspense } from 'react';
+import { Suspense, use } from 'react';
 
 export default async function Series({
   searchParams,
 }: {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const page = Number(searchParams.page) || 1;
+  const { page } = use(searchParams);
+  const pageNum = Number(page) || 1;
+
   // `http://localhost:3001/series?page=${page}`
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/series?page=${page}`
+    `${process.env.NEXT_PUBLIC_API_URL}/series?page=${pageNum}`
   );
   const seriesData = await res.json();
 
@@ -27,7 +29,7 @@ export default async function Series({
   return (
     <Suspense fallback={<div className="text-center">로딩 중...</div>}>
       <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">
-        <SeriesWrapper initialData={seriesData} initialPage={page} />
+        <SeriesWrapper initialData={seriesData} initialPage={pageNum} />
       </main>
     </Suspense>
   );
