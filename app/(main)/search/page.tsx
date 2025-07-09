@@ -14,7 +14,7 @@ export default async function Search({
     `${process.env.NEXT_PUBLIC_API_URL}/search?keyword=${keyword}&page=${page}`
   );
   const searchData = await res.json();
-  // console.log(searchData);
+  console.log(searchData);
 
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">

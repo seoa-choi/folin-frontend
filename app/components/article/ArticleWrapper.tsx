@@ -2,7 +2,7 @@
 
 import ArticleList from '@/app/components/article/ArticleList';
 import SeriesTab from '@/app/components/series/SeriesTab';
-import { useRouter, useSearchParams } from 'next/navigation';
+// import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 type SeriesTab = {

@@ -44,7 +44,7 @@ const occupationList = [
 export default function LinkerIntro() {
   const [withComment, setWithComment] = useState<Linker[]>([]);
   const [noComment, setNoComment] = useState<Linker[]>([]);
-  const [totalCount, setTotalCount] = useState<number>(0);
+  const [, setTotalCount] = useState<number>(0);
   // 기본값 설정
   const [randomBg, setRandomBg] = useState(pointBg[0]);
   const [totalPage, setTotalPage] = useState(0);

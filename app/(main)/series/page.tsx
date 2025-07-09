@@ -1,5 +1,5 @@
 import SeriesWrapper from '@/app/components/series/SeriesWrapper';
-import { Suspense, use } from 'react';
+import { Suspense } from 'react';
 
 export default async function Series({
   searchParams,

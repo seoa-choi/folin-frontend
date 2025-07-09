@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { notoSansKR, suite } from '@/app/components/fonts';
+import { notoSansKR } from '@/app/components/fonts'; // suite
 import TanStackProvider from '@/providers/TanStackProvider';
 import ThemeProvider from '@/app/components/ThemeProvider';
 

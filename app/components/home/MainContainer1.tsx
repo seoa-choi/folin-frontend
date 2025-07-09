@@ -43,8 +43,8 @@ export default function MainContainer1({ isClosed }: { isClosed: boolean }) {
               <p className="text-[15px] mb-[24px]">
                 폴인은 일에 진심인 사람들을 위한 콘텐츠 구독 서비스입니다.
                 <br />
-                현업 전문가 '링커(Linker)'의 경험과 인사이트로 내 커리어의
-                전성기를 만들어 보세요.
+                현업 전문가 &apos;링커(Linker)&apos;의 경험과 인사이트로 내
+                커리어의 전성기를 만들어 보세요.
               </p>
             </div>
           </div>

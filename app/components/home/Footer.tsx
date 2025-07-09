@@ -58,7 +58,7 @@ export default function Footer() {
   }
 
   // 서버 오류 방지 값 0
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [, setWindowWidth] = useState(0);
   // 클라이언트에서만 변경
   const [isMobile, setIsMobile] = useState(false);
   function handleResize() {

@@ -75,7 +75,8 @@ export default function NextSeminar() {
               />
             </h3>
             <h3 className="mb-[16px] text-[28px] font-bold leading-[36px] group-hover:text-[#00d48d] max-md:group-hover:text-[#111]">
-              "토스는 유저에게 '이렇게' 묻는다" UX 리서치 전략
+              &quot;토스는 유저에게 &apos;이렇게&apos; 묻는다&quot; UX 리서치
+              전략
             </h3>
             <div className="mb-[48px] max-sm:mb-[24px]">
               <strong className="text-[24px] font-bold inline-block mr-[4px] group-hover:text-[#00d48d] max-md:group-hover:text-[#111]">

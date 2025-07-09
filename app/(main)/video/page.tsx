@@ -1,10 +1,24 @@
 'use client';
 
+type SeriesTab = {
+  series_id: number;
+  tit: string;
+};
+
+type VideoItem = {};
+
+type VideoDb = {
+  seriesTab: SeriesTab[];
+  videoSeries: VideoItem[];
+  limit: number;
+  totalCount: number;
+};
+
 import SeriesTab from '@/app/components/series/SeriesTab';
 import { useEffect, useState } from 'react';
 
-export default function video() {
-  const [videoData, setVideoData] = useState<any>(null);
+export default function Video() {
+  const [videoData, setVideoData] = useState<VideoDb | null>(null);
 
   useEffect(() => {
     async function getVideo() {
@@ -23,7 +37,7 @@ export default function video() {
       </div>
     );
 
-  const { seriesTab, videoSeries, limit, totalCount } = videoData;
+  const { seriesTab } = videoData;
 
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px] ">
