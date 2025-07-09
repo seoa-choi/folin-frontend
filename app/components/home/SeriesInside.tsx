@@ -84,6 +84,12 @@ export default function SeriesInside() {
             >
               {item.items.map((int, idx) => {
                 const reverseIndex = item.items.length - idx;
+                console.log(
+                  new URL(
+                    int.img_url,
+                    process.env.NEXT_PUBLIC_API_URL
+                  ).toString()
+                );
 
                 return (
                   <SwiperSlide key={int.contents_id}>
