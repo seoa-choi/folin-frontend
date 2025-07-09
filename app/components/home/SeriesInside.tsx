@@ -94,7 +94,7 @@ export default function SeriesInside() {
                       <div className="w-[calc(100%-16px)] h-auto">
                         <div>
                           <Image
-                            src={`${process.env.NEXT_PUBLIC_API_URL}/series/main/${int.img_url}`}
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${int.img_url}`}
                             alt={int.series_title}
                             width={368}
                             height={276}
