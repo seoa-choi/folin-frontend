@@ -20,33 +20,91 @@ function H3Layout({ text }: { text: string }) {
   );
 }
 
-export default function SearchWrapper() {
+type ContentsDb = {
+  content_type: string;
+  contents_id: number;
+  create_at: string;
+  img_url: string;
+  linkers: string;
+  sub_title: string;
+  title: string;
+  title_id: number;
+  updated_at: string;
+};
+
+type LinkerDb = {
+  affiliation: string;
+  author: string;
+  comment: string;
+  created_at: string;
+  linker_id: number;
+  occupation_id: number;
+};
+
+type ProposalDb = {
+  created_at: string;
+  for_whom1: string;
+  for_whom2: string;
+  for_whom3: string;
+  proposal_id: number;
+  title: string;
+  title_id: number;
+  why: string;
+};
+
+type TabOps = {
+  tabs: {
+    label: string;
+    value: string;
+  }[];
+};
+
+type SearchDb = {
+  contentsDb: ContentsDb[];
+  linkerDb: LinkerDb[];
+  proposalDb: ProposalDb[];
+  tabOps: TabOps;
+};
+
+export default function SearchWrapper({
+  searchData,
+  keyword,
+  page,
+}: {
+  searchData: SearchDb;
+  keyword: string;
+  page: number;
+}) {
+  const { contentsDb, linkerDb, proposalDb, tabOps } = searchData;
+
+  console.log(searchData);
+  function handleInputChange() {}
   return (
     <div>
       {/* 검색 */}
       <div>
-        <SearchArea />
+        <SearchArea keyword={keyword} handleInputChange={handleInputChange} />
         <h2 className="text-[28px] font-bold text-center mb-[32px]">
-          <span className="text-[#00aa73]">키워드</span> 검색 결과
+          <span className="text-[#00aa73]">{keyword}</span> 검색 결과
         </h2>
       </div>
 
       {/* 탭버튼 */}
       <div className="m-[32px_0_64px]">
-        <SearchTab />
+        <SearchTab tabOps={tabOps} />
       </div>
       {/* 시리즈 */}
       <div>
         <H3Layout text="시리즈" />
         {/* 처음 데이터 2개, 더보기 펼치면 15개 */}
-        <SearchSeries />
+        <SearchSeries proposalDb={proposalDb} />
       </div>
 
       {/* 아티클 */}
       <div>
         <H3Layout text="아티클" />
         {/* 처음 2열 3행, 더보기 15개 */}
-        <SearchArticle />
+        <SearchArticle contentsDb={contentsDb} />
       </div>
 
       {/* 비디오 */}

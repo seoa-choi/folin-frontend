@@ -3,7 +3,7 @@ import SearchWrapper from '@/app/components/search/SearchWrapper';
 export default async function Search({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; keyword?: string }>;
+  searchParams: Promise<{ page: number; keyword?: string }>;
 }) {
   const { page, keyword } = await searchParams;
 
@@ -19,7 +19,11 @@ export default async function Search({
 
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">
-      <SearchWrapper />
+      <SearchWrapper
+        searchData={searchData}
+        keyword={searchKeyword}
+        page={page}
+      />
     </main>
   );
 }

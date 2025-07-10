@@ -9,8 +9,26 @@ export const metadata: Metadata = {
     default: '폴인 - fol:in',
     template: '폴인 ',
   },
-  description:
+
+  keywords:
     '폴인, folin, 직장인, 성공, 인사이트, 트렌드, 브랜딩, 커리어, 멤버십, 구독, 마케팅',
+  description: '일에 진심인 사람들을 위한 트렌드&커리어 콘텐츠',
+
+  openGraph: {
+    siteName: '폴인',
+    title: '폴인 - fol:in',
+    description: '일에 진심인 사람들을 위한 트렌드&커리어 콘텐츠',
+    url: 'https://seoachoiaws.com',
+
+    images: [
+      {
+        url: 'https://seoachoiaws.com/images/og_folin.jpg',
+        width: 765,
+        height: 400,
+        alt: '폴인',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

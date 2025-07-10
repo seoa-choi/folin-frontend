@@ -1,6 +1,12 @@
 import Image from 'next/image';
 
-export default function SearchArea() {
+export default function SearchArea({
+  keyword,
+  handleInputChange,
+}: {
+  keyword: string;
+  handleInputChange: () => void;
+}) {
   return (
     <div className="w-[588px] m-[64px_auto_48px] max-sm:w-full">
       <form className="py-[4px] pr-[12px] pl-[16px] w-full rounded-[6px] bg-[#f7f7f7]">

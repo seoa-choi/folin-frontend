@@ -1,7 +1,23 @@
 // import Image from 'next/image';
 import Link from 'next/link';
 
-export default function SearchArticle() {
+type ContentsDb = {
+  content_type: string;
+  contents_id: number;
+  create_at: string;
+  img_url: string;
+  linkers: string;
+  sub_title: string;
+  title: string;
+  title_id: number;
+  updated_at: string;
+};
+
+export default function SearchArticle({
+  contentsDb,
+}: {
+  contentsDb: ContentsDb[];
+}) {
   return (
     <div>
       <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1 max-sm:gap-0">
