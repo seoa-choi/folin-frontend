@@ -33,8 +33,11 @@ export default function SearchMenu({
     setHasInput(false);
   }
 
+  // after로 검색메뉴 구분
+  // absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px] max-sm:mt-[8px]
+
   return (
-    <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px]">
+    <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] ">
       <form className="py-[4px] pr-[12px] pl-[6px] w-full rounded-[6px] bg-[#f7f7f7]">
         <fieldset className="flex items-center gap-x-[8px]">
           <legend>통합 검색창</legend>

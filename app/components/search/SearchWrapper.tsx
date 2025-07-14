@@ -1,3 +1,5 @@
+'use client';
+
 import SearchArea from '@/app/components/search/SearchArea';
 import SearchArticle from '@/app/components/search/SearchArticle';
 import SearchLinker from '@/app/components/search/SearchLinker';
@@ -6,16 +8,18 @@ import SearchSeries from '@/app/components/search/SearchSeries';
 import SearchTab from '@/app/components/search/SearchTab';
 import SearchVideo from '@/app/components/search/SearchVideo';
 
-function H3Layout({ text }: { text: string }) {
+function H3Layout({ text, count }: { text: string; count: number }) {
   return (
     <div className="flex justify-between mb-[32px] text-[24px] pr-[16px] ">
       <div className="flex gap-[4px]">
         <h3 className="font-bold">{text}</h3>
-        <p className="font-bold text-[#00aa73]">count</p>
+        <p className="font-bold text-[#00aa73]">{count}</p>
       </div>
-      <button type="button" className="text-[12px] underline font-normal">
-        {text} 더보기
-      </button>
+      {text !== '비디오' && text !== '세미나' && (
+        <button type="button" className="text-[12px] underline font-normal">
+          {text} 더보기
+        </button>
+      )}
     </div>
   );
 }
@@ -32,13 +36,26 @@ type ContentsDb = {
   updated_at: string;
 };
 
+type ContentsDbNoLimit = {
+  content_type: string;
+  contents_id: number;
+  create_at: string;
+  img_url: string;
+  linkers: string;
+  sub_title: string;
+  title: string;
+  title_id: number;
+  updated_at: string;
+};
+
 type LinkerDb = {
   affiliation: string;
   author: string;
   comment: string;
   created_at: string;
+  image_url: string;
+  keywords: string;
   linker_id: number;
-  occupation_id: number;
 };
 
 type ProposalDb = {
@@ -52,6 +69,12 @@ type ProposalDb = {
   why: string;
 };
 
+type Counts = {
+  contents: number;
+  linker: number;
+  proposal: number;
+};
+
 type TabOps = {
   tabs: {
     label: string;
@@ -61,8 +84,10 @@ type TabOps = {
 
 type SearchDb = {
   contentsDb: ContentsDb[];
+  contentsDbNoLimit: ContentsDbNoLimit[];
   linkerDb: LinkerDb[];
   proposalDb: ProposalDb[];
+  counts: Counts;
   tabOps: TabOps;
 };
 
@@ -75,9 +100,15 @@ export default function SearchWrapper({
   keyword: string;
   page: number;
 }) {
-  const { contentsDb, linkerDb, proposalDb, tabOps } = searchData;
+  const {
+    contentsDb,
+    contentsDbNoLimit,
+    linkerDb,
+    proposalDb,
+    counts,
+    tabOps,
+  } = searchData;
 
-  console.log(searchData);
   function handleInputChange() {}
   return (
     <div>
@@ -91,41 +122,44 @@ export default function SearchWrapper({
 
       {/* 탭버튼 */}
       <div className="m-[32px_0_64px]">
-        <SearchTab tabOps={tabOps} />
+        <SearchTab tabOps={tabOps} counts={counts} />
       </div>
       {/* 시리즈 */}
       <div>
-        <H3Layout text="시리즈" />
+        <H3Layout text="시리즈" count={counts.proposal} />
         {/* 처음 데이터 2개, 더보기 펼치면 15개 */}
-        <SearchSeries proposalDb={proposalDb} />
+        <SearchSeries
+          proposalDb={proposalDb}
+          contentsDbNoLimit={contentsDbNoLimit}
+        />
       </div>
 
       {/* 아티클 */}
       <div>
-        <H3Layout text="아티클" />
+        <H3Layout text="아티클" count={counts.contents} />
         {/* 처음 2열 3행, 더보기 15개 */}
         <SearchArticle contentsDb={contentsDb} />
       </div>
 
       {/* 비디오 */}
       <div>
-        <H3Layout text="비디오" />
+        <H3Layout text="비디오" count={0} />
         {/* 아티클이랑 똑같으나 데이터 없음 처리 */}
         <SearchVideo />
       </div>
 
       {/* 세미나 */}
       <div>
-        <H3Layout text="세미나" />
+        <H3Layout text="세미나" count={0} />
         {/* 처음 4개 펼치면 15개 */}
         <SearchSeminar />
       </div>
 
       {/* 링커 */}
       <div>
-        <H3Layout text="링커" />
+        <H3Layout text="링커" count={counts.linker} />
         {/* 처음 6개, 펼치면 24개 */}
-        <SearchLinker />
+        <SearchLinker linkerDb={linkerDb} />
       </div>
     </div>
   );

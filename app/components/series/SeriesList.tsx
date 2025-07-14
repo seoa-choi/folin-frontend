@@ -67,7 +67,6 @@ export default function SeriesList({
   }
   // console.log('grid', gridSeries, 'list', listSeries);
 
-  // 총 화 수정하기 0이 있으면 안됨
   return (
     <div>
       {listSeries.map((list, i) => {
