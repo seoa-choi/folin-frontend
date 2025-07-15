@@ -13,6 +13,8 @@ export default function SearchTab({
   tabOps: { tabs: { label: string; value: string }[] };
   counts: Counts;
 }) {
+  // 스와이퍼로 수정 해야 함
+
   return (
     <div className="flex">
       {tabOps.tabs.map((item, i) => (

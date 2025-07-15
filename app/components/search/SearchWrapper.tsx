@@ -7,6 +7,8 @@ import SearchSeminar from '@/app/components/search/SearchSeminar';
 import SearchSeries from '@/app/components/search/SearchSeries';
 import SearchTab from '@/app/components/search/SearchTab';
 import SearchVideo from '@/app/components/search/SearchVideo';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 function H3Layout({ text, count }: { text: string; count: number }) {
   return (
@@ -109,12 +111,37 @@ export default function SearchWrapper({
     tabOps,
   } = searchData;
 
-  function handleInputChange() {}
+  const newParams = new URLSearchParams();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const router = useRouter();
+
+  //  newKeyword: string, newPage: number
+  function updateSearchParams(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (inputRef?.current?.value) {
+      newParams.set('keyword', inputRef.current.value);
+    } else {
+      newParams.delete('page', '1');
+    }
+    // router.push(`?${newParams.toString()}`);
+    router.replace(`?${newParams.toString()}`);
+    // router.refresh();
+  }
+
+  // if (!proposalDb || !Array.isArray(proposalDb)) {
+  //   return <p>시리즈 데이터를 불러올 수 없습니다.</p>;
+  // }
+
   return (
     <div>
       {/* 검색 */}
       <div>
-        <SearchArea keyword={keyword} handleInputChange={handleInputChange} />
+        <SearchArea
+          keyword={keyword}
+          updateSearchParams={updateSearchParams}
+          ref={inputRef}
+        />
         <h2 className="text-[28px] font-bold text-center mb-[32px]">
           <span className="text-[#00aa73]">{keyword}</span> 검색 결과
         </h2>
@@ -126,7 +153,10 @@ export default function SearchWrapper({
       </div>
       {/* 시리즈 */}
       <div>
-        <H3Layout text="시리즈" count={counts.proposal} />
+        <H3Layout
+          text="시리즈"
+          count={counts?.proposal ?? proposalDb.length ?? 0}
+        />
         {/* 처음 데이터 2개, 더보기 펼치면 15개 */}
         <SearchSeries
           proposalDb={proposalDb}

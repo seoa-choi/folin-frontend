@@ -1,15 +1,24 @@
 import Image from 'next/image';
+import { FormEvent, RefObject } from 'react';
 
 export default function SearchArea({
   keyword,
-  handleInputChange,
+  updateSearchParams,
+  ref,
 }: {
   keyword: string;
-  handleInputChange: () => void;
+  // newKeyword: string, newPage: number
+  updateSearchParams: (e: FormEvent<HTMLFormElement>) => void;
+  ref: RefObject<HTMLInputElement | null>;
 }) {
   return (
     <div className="w-[588px] m-[64px_auto_48px] max-sm:w-full">
-      <form className="py-[4px] pr-[12px] pl-[16px] w-full rounded-[6px] bg-[#f7f7f7]">
+      <form
+        // action={`/search?keyword=${keyword}&page=1`}
+        // method="GET"
+        className="py-[4px] pr-[12px] pl-[16px] w-full rounded-[6px] bg-[#f7f7f7]"
+        onSubmit={updateSearchParams}
+      >
         <fieldset className="flex items-center gap-x-[8px]">
           <legend>통합 검색창</legend>
           <button type="submit" className="w-[32px] h-[32px] bg-transparent">
@@ -24,8 +33,8 @@ export default function SearchArea({
             type="search"
             placeholder="성장의 경험을 찾습니다."
             className="w-[calc(100%-32px)] bg-transparent border-0 placeholder:text-[#c5c5c5] placeholder:font-[Noto-Sans] h-[56px] caret-[#00d48d] p-0"
-            // ref={inputRef}
-            // onChange={handleInputChange}
+            ref={ref}
+            defaultValue={keyword}
           />
           <button
             type="button"

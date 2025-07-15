@@ -37,7 +37,7 @@ export default function KeyWord() {
           {KeyWordTabs.map((item, i) => (
             <li key={i}>
               <Link
-                href="/search"
+                href={`/search?keyword=${item.tabMenu}&page=1`}
                 className="h-[48px] py-[16px] px-[32px] text-[18px] rounded-[6px] bg-white flex items-center font-bold hover:bg-point1"
               >
                 {item.tabMenu}
@@ -49,7 +49,7 @@ export default function KeyWord() {
           {KeyWordTabs2.map((item, i) => (
             <li key={i}>
               <Link
-                href="/search"
+                href={`/search?keyword=${item.tabMenu}&page=1`}
                 className="h-[48px] py-[16px] px-[32px] text-[18px] rounded-[6px] bg-white flex items-center font-bold hover:bg-point1"
               >
                 {item.tabMenu}
@@ -61,7 +61,7 @@ export default function KeyWord() {
           {KeyWordTabs3.map((item, i) => (
             <li key={i}>
               <Link
-                href="/search"
+                href={`/search?keyword=${item.tabMenu}&page=1`}
                 className="h-[48px] py-[16px] px-[32px] text-[18px] rounded-[6px] bg-white flex items-center font-bold hover:bg-point1"
               >
                 {item.tabMenu}

@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 
-const SearchMenus = [
+const searchMenus = [
   { menu: '마케팅' },
   { menu: '브랜딩' },
   { menu: '기획' },
@@ -22,6 +23,8 @@ export default function SearchMenu({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [hasInput, setHasInput] = useState(false);
 
+  const router = useRouter();
+
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setHasInput(e.target.value.trim().length > 0);
   }
@@ -33,12 +36,30 @@ export default function SearchMenu({
     setHasInput(false);
   }
 
+  function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const keyword = inputRef.current?.value?.trim() || '';
+    if (!keyword) return;
+
+    const params = new URLSearchParams();
+    params.set('keyword', keyword);
+    params.set('page', '1');
+
+    router.replace(`/search?keyword=${encodeURIComponent(keyword)}&page=1`);
+    // router.replace(`/search?${params.toString()}`);
+    router.refresh();
+  }
+
   // after로 검색메뉴 구분
   // absolute after:absolute after:left-0 after:top-0 after:bg-[#ebedec] after:w-full after:h-full after:-z-1 left-0 top-[52px] max-sm:mt-[8px]
 
   return (
     <div className="w-full mx-auto p-[4px] bg-[#00d48d] rounded-[6px] mt-[4px] ">
-      <form className="py-[4px] pr-[12px] pl-[6px] w-full rounded-[6px] bg-[#f7f7f7]">
+      <form
+        className="py-[4px] pr-[12px] pl-[6px] w-full rounded-[6px] bg-[#f7f7f7]"
+        onSubmit={handleSearchSubmit}
+      >
         <fieldset className="flex items-center gap-x-[8px]">
           <legend>통합 검색창</legend>
           <button type="submit" className="w-[32px] h-[32px] bg-transparent">
@@ -70,9 +91,11 @@ export default function SearchMenu({
         </fieldset>
       </form>
       <ul className="flex justify-center gap-x-[24px] gap-y-[16px] p-[18px] flex-wrap font-bold">
-        {SearchMenus.map((item) => (
+        {searchMenus.map((item) => (
           <li key={item.menu} onClick={handleSearchBar}>
-            <Link href="/search">{item.menu}</Link>
+            <Link href={`/search?keyword=${item.menu}&page=1`}>
+              {item.menu}
+            </Link>
           </li>
         ))}
       </ul>
