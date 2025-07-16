@@ -21,7 +21,7 @@ export default async function Search({
       <SearchWrapper
         searchData={searchData}
         keyword={searchKeyword}
-        page={pageNumber}
+        // page={pageNumber}
       />
     </main>
   );

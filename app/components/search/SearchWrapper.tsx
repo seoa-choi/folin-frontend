@@ -8,7 +8,7 @@ import SearchSeries from '@/app/components/search/SearchSeries';
 import SearchTab from '@/app/components/search/SearchTab';
 import SearchVideo from '@/app/components/search/SearchVideo';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 function H3Layout({ text, count }: { text: string; count: number }) {
   return (
@@ -96,11 +96,11 @@ type SearchDb = {
 export default function SearchWrapper({
   searchData,
   keyword,
-  page,
-}: {
+}: // page,
+{
   searchData: SearchDb;
   keyword: string;
-  page: number;
+  // page: number;
 }) {
   const {
     contentsDb,
