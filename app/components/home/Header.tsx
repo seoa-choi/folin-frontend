@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Gnb from '@/app/components/home/Gnb';
 import { useEffect, useState } from 'react';
 import SearchMenu from '@/app/components/home/SearchMenu';
+import { usePathname } from 'next/navigation';
 
 const menus = [
   {
@@ -46,6 +47,8 @@ const userMenu = [
 ];
 
 export default function Header() {
+  // 경로 이동 감지
+  const pathname = usePathname();
   // 써치
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   // 서버 오류 방지 값 0
@@ -83,6 +86,11 @@ export default function Header() {
   function handleSearchBar() {
     setIsSearchOpen(!isSearchOpen);
   }
+
+  useEffect(() => {
+    // 페이지 이동 시 검색창 닫기
+    setIsSearchOpen(false);
+  }, [pathname]);
 
   return (
     <header
