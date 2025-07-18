@@ -38,7 +38,7 @@ export default function Share({
 
   return (
     <div className="fixed top-0 left-0 bg-[rgba(17,17,17,0.85)] w-full h-full z-100 flex items-center justify-center">
-      <div className="fixed w-[288px] h-[199px] max-w-[406px] bg-white p-[12px] rounded-[6px] flex flex-col items-center">
+      <div className="fixed w-[300px] h-[199px] max-w-[406px] bg-white p-[12px] rounded-[6px] flex flex-col items-center">
         <div>
           <button
             type="button"
@@ -49,24 +49,24 @@ export default function Share({
           </button>
           <h2 className="my-[20px] text-center font-bold">공유하기</h2>
         </div>
-        <div className="flex gap-[24px] mb-[24px]">
+        <div className="flex gap-[16px] mb-[24px]">
           {spread.map((item, i) => (
             <button key={i} type="button" className="bg-transparent">
               <Image src={item.snsImg} alt={item.alt} width={48} height={48} />
             </button>
           ))}
         </div>
-        <div className="bg-[#f7f7f7] w-full p-[4px_8px]">
+        <div className="bg-[#f7f7f7] w-full p-[4px_8px] flex">
           <input
             className="bg-transparent w-[90%] text-[14px] rounded-[2px]"
             onChange={(e) => setCurentUrl(e.target.value)}
             value={currentUrl}
             readOnly
           />
-          {/* outline-2 */}
+          {/* outline-2 w-[288px]*/}
           <button
             type="button"
-            className="bg-transparent"
+            className="bg-transparent w-[10%]"
             onClick={handleCopyClipBoard}
           >
             <Image
