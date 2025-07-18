@@ -31,7 +31,7 @@ export default function Share({
         setCopyMessage(false);
       }, 2000);
     } catch (error) {
-      console.error('재시도 해주세요');
+      console.error(error);
       alert('재시도 해주세요');
     }
   };
