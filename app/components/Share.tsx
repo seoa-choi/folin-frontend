@@ -38,7 +38,7 @@ export default function Share({
 
   return (
     <div className="fixed top-0 left-0 bg-[rgba(17,17,17,0.85)] w-full h-full z-100 flex items-center justify-center">
-      <div className="fixed w-[300px] h-[199px] max-w-[406px] bg-white p-[12px] rounded-[6px] flex flex-col items-center">
+      <div className="fixed w-full h-[199px] max-w-[320px] bg-white p-[12px] rounded-[6px] flex flex-col items-center max-[320px]:w-full">
         <div>
           <button
             type="button"
