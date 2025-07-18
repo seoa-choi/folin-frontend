@@ -5,6 +5,7 @@ import { createColorAssigner } from '@/app/_lib/colorUtils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import Share from '@/app/components/Share';
 
 type ArticleData = {
   contents_id: number;
@@ -60,6 +61,8 @@ const icons = [
 // 분기점 수정 할거 확인 할것
 
 export default function ArticleDetail({ articleId }: { articleId: string }) {
+  // share컴포넌트 넌블럭 처리
+  const [isShow, setIsShow] = useState(false);
   // 아이콘 마우스오버 액티브
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const { data, isLoading, isError } = useQuery<ArticleData[]>({
@@ -121,8 +124,13 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
     setHoverIndex(idx);
   }
 
+  function handleShowShare() {
+    setIsShow(!isShow);
+  }
+
   return (
     <main className="pt-[52px] px-[24px] max-w-[1248px] mx-auto max-sm:pt-[56px] max-sm:px-[8px]">
+      {isShow && <Share handleShowShare={handleShowShare} />}
       {filteredId?.map((item, i) => (
         <div key={i} className="w-[588px] pt-[64px] mx-auto max-sm:w-full">
           <div className="mb-[64px]">
@@ -149,6 +157,10 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                   className="group nth-[5]:border-r nth-[5]:h-[16px]"
                   onMouseEnter={() => handleMouseHover(i)}
                   onMouseLeave={() => handleMouseHover(null)}
+                  // share버튼만 이벤트 처리
+                  onClick={() => {
+                    if (ite.alt === 'share') handleShowShare();
+                  }}
                 >
                   {ite.icon && (
                     <Image

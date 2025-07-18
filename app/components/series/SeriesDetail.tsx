@@ -1,5 +1,7 @@
+import Share from '@/app/components/Share';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 type SeriesData = {
   contents_id: string;
@@ -23,6 +25,8 @@ export default function SeriesDetail({
   seriesId: string;
   seriesData: SeriesData[] | null;
 }) {
+  const [isShow, setIsShow] = useState(false);
+
   if (!seriesData) {
     return <div></div>;
   }
@@ -49,8 +53,13 @@ export default function SeriesDetail({
   // console.log(date.getMonth() + 1); // 6 (0부터 시작하니까 1을 더해줘야 6월)
   // console.log(date.getDate()); // 25
 
+  function handleShowShare() {
+    setIsShow(!isShow);
+  }
+  console.log(filteredId);
   return (
-    <div>
+    <>
+      {isShow && <Share handleShowShare={handleShowShare} />}
       <div>
         {uniqueProposals.map((item, idx) => {
           // Date 객체 변환,  단순문자 -> 날짜 계산 가능한 형식
@@ -74,7 +83,8 @@ export default function SeriesDetail({
                 <p className="text-[28px] font-bold mt-[23px] mb-[16px]">
                   {item.title}
                 </p>
-                <button type="button">
+                {/* 공유버튼  */}
+                <button type="button" onClick={handleShowShare}>
                   <Image
                     src="/images/share.png"
                     alt="공유"
@@ -112,7 +122,7 @@ export default function SeriesDetail({
       </div>
       <div className="py-[40px]">
         <h3 className="text-[18px] text-center font-bold mb-[16px]">콘텐츠</h3>
-        <p className="mb-[40px] text-center">총 {seriesData.length}화</p>
+        <p className="mb-[40px] text-center">총 {filteredId.length}화</p>
 
         {/*  */}
         <ul className="grid grid-cols-3 gap-[24px] max-md:grid-cols-2 max-md:gap-[8px] max-sm:grid-cols-1 max-sm:gap-0">
@@ -189,6 +199,6 @@ export default function SeriesDetail({
           })}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

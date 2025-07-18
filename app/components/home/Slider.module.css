@@ -127,6 +127,13 @@
   margin-right: 12px;
 }
 
+/* 써치탭 슬라이드 처리 */
+
+.slide-tab [class*='swiper-slide'] {
+  width: auto !important;
+  display: flex !important;
+}
+
 /* --------------------------- 서브 구분 선 ----------------------------- */
 
 /* 시리즈 */
