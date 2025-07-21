@@ -63,8 +63,8 @@ export default function SeriesInside() {
               <div className="w-[52px] h-[24px] bg-contain bg-no-repeat bg-center bg-[url(/images/gg.png)] group-hover:bg-[url(/images/green.png)] max-md:group-hover:bg-[url(/images/gg.png)]"></div>
             </Link>
             <div className="btn-wrap">
-              <button className="video-button-prev"></button>
-              <button className="video-button-next"></button>
+              <button className="inside-button-prev"></button>
+              <button className="inside-button-next"></button>
             </div>
           </div>
           <div>
@@ -78,8 +78,8 @@ export default function SeriesInside() {
                 1023: { slidesPerView: 3, spaceBetween: 24 },
               }}
               navigation={{
-                nextEl: '.video-button-next',
-                prevEl: '.video-button-prev',
+                nextEl: '.inside-button-next',
+                prevEl: '.inside-button-prev',
               }}
             >
               {item.items.map((int, idx) => {

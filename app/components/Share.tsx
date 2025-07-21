@@ -14,6 +14,7 @@ export default function Share({
 }) {
   const [currentUrl, setCurentUrl] = useState('');
   const [copyMessage, setCopyMessage] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // 현재 페이지 url 가져오기
   useEffect(() => {
@@ -68,13 +69,24 @@ export default function Share({
             type="button"
             className="bg-transparent w-[10%]"
             onClick={handleCopyClipBoard}
+            onMouseEnter={() => setIsActive(true)}
+            onMouseLeave={() => setIsActive(false)}
           >
-            <Image
-              src="/images/clip.png"
-              alt="urlIcon"
-              width={24}
-              height={24}
-            />
+            {!isActive ? (
+              <Image
+                src="/images/clip.png"
+                alt="urlIcon"
+                width={24}
+                height={24}
+              />
+            ) : (
+              <Image
+                src="/images/clip_g.png"
+                alt="urlIcon"
+                width={24}
+                height={24}
+              />
+            )}
           </button>
         </div>
         {/* 클립보드 복사 메시지 창 */}
@@ -82,8 +94,7 @@ export default function Share({
           <div
             className={`w-full h-[64px] bg-[rgb(17,17,17)] rounded-[6px] text-white text-[12px] text-center leading-[64px] absolute left-[50%] top-[50%] translate-[-50%] transition-all duration-500 ${
               copyMessage ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
-            }
-`}
+            }`}
           >
             <p>링크가 복사되었습니다.</p>
           </div>

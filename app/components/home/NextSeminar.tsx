@@ -6,7 +6,7 @@ export default function NextSeminar() {
     <div className="pb-[104px] max-sm:pb-[64px]">
       {/* 상 */}
       <Link
-        href=""
+        href="/seminar"
         className="max-w-[792px] mx-auto mb-[64px] flex items-center gap-[24px] group max-md:max-w-full max-md:gap-[8px] max-md:mx-0 max-sm:flex-col max-sm:gap-[24px] relative max-sm:pt-[64px]"
       >
         {/* 왼 */}
@@ -59,7 +59,7 @@ export default function NextSeminar() {
       </Link>
       {/* 하 */}
       <Link
-        href=""
+        href="/seminar"
         className="max-w-[792px] mx-auto flex items-center gap-[24px] group max-md:max-w-full max-md:gap-[8px] max-md:mx-0 max-sm:flex-col-reverse max-sm:gap-[24px] relative max-sm:pt-[64px]"
       >
         {/* 왼 */}

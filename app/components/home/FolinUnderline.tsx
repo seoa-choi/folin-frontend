@@ -6,52 +6,60 @@ import Link from 'next/link';
 
 const folinUnderline = [
   {
-    p: '다 울고 나면 그때부터 천천히 생각해요. 그 사람의 비판이 맞나, 틀리나? 연구는 기본적으로 모르는 걸 찾는 과정이니까요.',
-    name: '이진형',
-    person: '스탠퍼드대 생명공학과 교수',
+    p: '기회가 있는데 조직이 없다고 해서 그 일을 못 하리란 법은 없잖아요.',
+    name: '김연정',
+    person: '파리바게뜨 마케팅본부장',
     bg: 'bg-[#ff595f]',
+    link: 'https://www.seoachoiaws.com/article/6',
   },
   {
-    p: '어떻게든 엉덩이를 붙이고 있었더니 되더라고요. 결국 장학금을 받았어요. 그때 알았죠. 원하는 성적에 도달하는 법은 이거구나.',
-    name: '오승훈',
-    person: 'MBC 아나운서',
+    p: "'친절해야 한다.' 모두가 아는 원칙이죠. 하지만 이 원칙을 흔들림 없이 실천하는 건 다른 문제예요. 모든 고객이 환영받는다고 생각한다면? 결코 우연이 아닐 겁니다.",
+    name: '김형준',
+    person: '마일스톤 커피 대표',
     bg: 'bg-[#e6c48a]',
+    link: 'https://www.seoachoiaws.com/article/11',
   },
   {
-    p: "'안 된다'를 습관처럼 되뇌이는 무리로부터 멀어지세요. 우물 안의 개구리에서 벗어나야죠. 인생 모든 게 세일즈에요. ",
-    name: '윤미애',
-    person: '한성자동차 영업전문이사',
+    p: '고객의 어떤 점들이 궁금하다고 찾아오면 함께 리서치 진행 여부와 방식에 관해 논의하고요. 리서치 진행한 이후 결과를 가지고 몇 차례 소통하죠. 모든 과정은 협업을 통해 이뤄집니다.',
+    name: '김서연',
+    person: '토스증권 UX 리서처',
     bg: 'bg-[#25aacf]',
+    link: 'https://www.seoachoiaws.com/article/32',
   },
   {
-    p: '공부보단 다른 데 열심이었어요. 현장 경험하겠다고 나돌아다니고, 여행 다니고. 이름은 들어봤는데 본 적은 없는 애로 불렸죠.',
-    name: '차현지',
-    person: 'TBS PD',
+    p: '저희 목표는 "미쳤다" 소리 듣는 거예요. 그렇잖아요. 진짜 재밌다, 퀄리티 너무 좋다 그러면 고상하게 반응 안 해요. "이거 미쳤다" 하죠.',
+    name: '문동철',
+    person: '쿠팡플레이 콘텐츠 사업 총괄 상무',
     bg: 'bg-[#a3cfff]',
+    link: 'https://www.seoachoiaws.com/article/8',
   },
   {
-    p: '무한도전 시절, 30대의 저는 마지막 방송 나가기 10초 전에 테이프를 넘긴 적도 있어요. 한 번 테이프를 넘기면 끝이니까요.',
-    name: '김태호',
-    person: "'TEO'PD",
+    p: '브랜드가 알아서 탄생해주길 기다리는 소극적 태도론 안 돼요.',
+    name: '박민재',
+    person: '무신사 브랜드개발본부 실장',
     bg: 'bg-[#a45eeb]',
+    link: 'https://www.seoachoiaws.com/article/4',
   },
   {
-    p: '“리더라면, 마음을 쓰레기통처럼 해야죠.” 단계에만 집중하지 말고, 쓰레기통처럼 모든 의견을 받아들여야 한다는 의미예요.',
-    name: '이승우',
-    person: '길리어드코리아 대표',
+    p: '『행동은 불안을 이긴다』의 저자 롭 다이얼은 의지박약과 만성적 미루기의 원인을 딱 세 가지로 꼽아요. ①공포 ②자신에 대한 선입견 ③선명한 목표의 부족. 동시에 이를 극복하기 위한 행동 설계와 지속 방법을 제시하죠. ',
+    name: '박초롱',
+    person: '공공문화예술기획자·작가',
     bg: 'bg-[#ff595f]',
+    link: 'https://www.seoachoiaws.com/article/33',
   },
   {
-    p: '사람은 모든 게 언어다. 가만히 있는 것도 언어다. 일로 먼저 다가가기보다, 팀원의 평소 습관이나, 관심사를 잘 살피려 해요.',
-    name: '박준동',
-    person: '토스 PO',
+    p: '더 많은 사람이, 맛있는 커피를, 간편하게 마실 수 있게 한다. 이게 카누의 본질이자 동서식품 커피 비즈니스의 미션이에요. 여기에 집중해왔습니다.',
+    name: '김대철',
+    person: '동서식품 베버리지마케팅 1팀 팀장',
     bg: 'bg-[#e6c48a]',
+    link: 'https://www.seoachoiaws.com/article/16',
   },
   {
-    p: "신입은 아이디어를 내는 존재예요. '나는 신선한 아이디어를 낼 수 있는 사람'이구나. 주니어라 가능한 일을 맘껏 누리려고요.",
-    name: '김하연',
-    person: '문학동네 마케터',
+    p: '10살 때 발레를 시작했어요. 당연하게도 발레리나의 꿈을 꿨죠. 고등학교 입학 후에 현대 무용을 처음 접했는데, 생경했어요. 발레는 완벽함을 추구해요. 머리도 틀어올려야 하고 딱딱한 토슈즈를 신어야 했죠. 그런 길에 권태기를 느낄 무렵 현대 무용을 시작한 거예요.',
+    name: '차진엽',
+    person: '안무가',
     bg: 'bg-[#25aacf]',
+    link: 'https://www.seoachoiaws.com/article/22',
   },
 ];
 
@@ -83,10 +91,10 @@ export default function FolinUnderline() {
           {folinUnderline.map((item, i) => (
             <SwiperSlide key={i}>
               <Link
-                href=""
+                href={`${item.link}`}
                 className={`flex flex-col justify-between p-[16px] rounded-[6px] aspect-[1/1.5] min-h-[360px] ${item.bg} relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 max-md:aspect-auto`}
               >
-                <div className="text-[24px] leading-[36px] font-bold text-ellipsis break-words max-md:text-[18px] max-md:leading-[27px]">
+                <div className="text-[24px] leading-[36px] font-bold text-ellipsis break-words max-md:text-[18px] max-md:leading-[27px] line-clamp-9">
                   {item.p}
                 </div>
                 <div>
