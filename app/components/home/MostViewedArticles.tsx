@@ -216,7 +216,7 @@ export default function MostViewedArticles() {
                       {article.sub_title}
                     </h3>
                     <p className="text-[12px] group-hover:text-[#00aa73] max-md:group-hover:text-[#111]">
-                      {article.sub_title}
+                      {article.linkers}
                     </p>
                   </div>
                 </Link>

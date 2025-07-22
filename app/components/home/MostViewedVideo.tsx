@@ -75,8 +75,8 @@ const videos = [
   {
     img: '/images/videos/1744726281468_팀장의승진2.jpg',
     title: '신수정의 트레이닝',
-    color: '5화',
-    idx: '#f2ec72',
+    color: '#f2ec72',
+    idx: '5화',
     mainTit: '신수정의 트레이닝⑤ 영원한 팀장은 없다, 프로의 세계로 가라',
     person: '신수정',
     path: '',
@@ -184,7 +184,7 @@ export default function MostViewedVideo() {
                     {item.mainTit}
                   </h3>
                   <p className="text-[12px] group-hover:text-[#00aa73] max-md:group-hover:text-[#111]">
-                    {item.mainTit}
+                    {item.person}
                   </p>
                 </div>
               </Link>

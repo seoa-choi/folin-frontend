@@ -5,6 +5,7 @@ import Footer from '@/app/components/home/Footer';
 import Membership from '@/app/components/home/Membership';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import ChatPage from '@/app/chat/page';
 
 export default function MainLayout({
   children,
@@ -39,7 +40,7 @@ export default function MainLayout({
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
       {children}
       {/* 멤버십 - 메인만 적용 */}
@@ -49,7 +50,8 @@ export default function MainLayout({
       )}
 
       <Footer />
-    </div>
+      <ChatPage />
+    </>
   );
 }
 

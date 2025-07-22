@@ -94,7 +94,7 @@ export default function FolinUnderline() {
                 href={`${item.link}`}
                 className={`flex flex-col justify-between p-[16px] rounded-[6px] aspect-[1/1.5] min-h-[360px] ${item.bg} relative duration-[0.3s] hover:-translate-y-[16px] group max-md:hover:-translate-y-0 max-md:aspect-auto`}
               >
-                <div className="text-[24px] leading-[36px] font-bold text-ellipsis break-words max-md:text-[18px] max-md:leading-[27px] line-clamp-9">
+                <div className="text-[24px] leading-[36px] font-bold text-ellipsis break-words line-clamp-8 max-[1200px]:line-clamp-7 max-md:text-[18px] max-md:leading-[27px] ">
                   {item.p}
                 </div>
                 <div>
