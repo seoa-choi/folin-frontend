@@ -10,6 +10,12 @@ export async function POST(request: Request) {
     body: JSON.stringify({ message }),
   });
 
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error(`Server responded with ${res.status}: ${errorText}`);
+    return NextResponse.json({ error: errorText }, { status: res.status });
+  }
+
   const data = await res.json();
   return NextResponse.json(data);
 }
