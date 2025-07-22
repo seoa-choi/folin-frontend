@@ -12,7 +12,7 @@ export default function ChatPage() {
 
   const mutation = useMutation({
     mutationFn: async (message: string) => {
-      const res = await fetch('api/chat', {
+      const res = await fetch('/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),

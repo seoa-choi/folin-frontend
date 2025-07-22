@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   const { message } = await request.json();
 
-  const res = await fetch('http://localhost:8000/chat', {
+  const res = await fetch('http://api.seoachoiaws.com/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message }),
