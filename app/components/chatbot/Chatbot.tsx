@@ -5,14 +5,14 @@ export default function Chatbot({
   setInputValue,
   messages,
   sendMessage,
-  isLoading,
+  // isLoading,
   handleClose,
 }: {
   inputValue: string;
   setInputValue: (str: string) => void;
   messages?: { user: string; bot: string }[] | undefined;
   sendMessage: () => void;
-  isLoading: boolean;
+  // isLoading: boolean;
   handleClose: () => void;
 }) {
   return (

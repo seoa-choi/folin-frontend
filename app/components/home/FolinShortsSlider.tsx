@@ -50,7 +50,6 @@ const FolinShorts = [
 ];
 
 export default function FolinShortsSlider() {
-  function handlePlayShorts() {}
   return (
     <>
       <div className={`${styles['slide-button']}`}>

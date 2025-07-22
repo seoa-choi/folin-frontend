@@ -54,7 +54,7 @@ export default function ChatPage() {
           setInputValue={setInputValue}
           messages={messages}
           sendMessage={sendMessage}
-          isLoading={mutation.isPending}
+          // isLoading={mutation.isPending}
           handleClose={handleClose}
         />
       )}
