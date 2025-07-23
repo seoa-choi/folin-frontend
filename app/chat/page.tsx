@@ -41,6 +41,7 @@ export default function ChatPage() {
   function handleClose() {
     setIsClose(!isClose);
     setInputValue('');
+    setMessages([]);
   }
   return (
     <>
@@ -56,7 +57,8 @@ export default function ChatPage() {
           messages={messages}
           sendMessage={sendMessage}
           // isLoading={mutation.isPending}
-          handleClose={handleClose}
+          // handleClose={handleClose}
+          setIsClose={setIsClose}
         />
       )}
     </>

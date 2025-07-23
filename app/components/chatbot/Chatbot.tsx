@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 
 export default function Chatbot({
   inputValue,
@@ -6,43 +7,64 @@ export default function Chatbot({
   messages,
   sendMessage,
   // isLoading,
-  handleClose,
+  // handleClose,
+  setIsClose,
 }: {
   inputValue: string;
   setInputValue: (str: string) => void;
   messages?: { user: string; bot: string }[] | undefined;
   sendMessage: () => void;
   // isLoading: boolean;
-  handleClose: () => void;
+  // handleClose: () => void;
+  setIsClose: Dispatch<SetStateAction<boolean>>;
 }) {
+  const chatbotRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const chatbot = chatbotRef.current;
+    if (chatbot) {
+      // scrollHeight 실제 콘텐츠 높이
+      chatbot.scrollTop = chatbot.scrollHeight;
+    }
+    return;
+  }, [messages]);
+
   return (
-    <div className="max-w-[400px] h-[500px] bg-white fixed w-full bottom-[102px] right-[12px] rounded-[6px] z-1000000 border border-[#00d48d] overflow-hidden overflow-y-scroll scroll pr-[10px] scroll-p-0">
+    <div
+      className={`chatbot max-w-[400px] h-[500px] bg-[#ebedec] fixed w-full bottom-[50%] right-[12px] translate-y-[50%] rounded-[6px] z-1000000 border border-[#00d48d] overflow-hidden`}
+    >
       <div className="flex justify-between items-center p-[10px]">
-        <h2 className="px-[12px] text-[20px] font-semibold font-[SUITE]">
-          궁금한게 있으신가요?
-        </h2>
-        <button type="button" className="bg-white" onClick={handleClose}>
+        <h2 className="px-[12px]">OpenAi chatbot</h2>
+        <button
+          type="button"
+          className="bg-white rounded-[50%]"
+          onClick={() => setIsClose(false)}
+        >
           <Image src="/images/x.png" alt="닫기" width={32} height={32} />
         </button>
       </div>
       {/* 대화 */}
-      {messages?.map((item, i) => (
-        <div
-          key={i}
-          className="flex flex-col items-end gap-[5px] px-[20px] mb-[10px] font-[SUITE]"
-        >
-          <p className="p-[4px_16px] bg-[#111] text-white rounded-[12px]">
-            {item.user}
-          </p>
-          <p className="p-[4px_20px] bg-[#00d48d] rounded-[12px] w-full h-auto">
-            {item.bot}
-          </p>
-        </div>
-      ))}
+      <div
+        ref={chatbotRef}
+        className="overflow-y-scroll h-[calc(100%-70px)] pb-[60px]"
+      >
+        {messages?.map((item, i) => (
+          <div
+            key={i}
+            className="flex flex-col items-end gap-[5px] px-[20px] mb-[10px] font-[SUITE]"
+          >
+            <p className="p-[4px_16px] bg-[#111] text-white rounded-[12px] break-words">
+              {item.user}
+            </p>
+            <p className="p-[4px_20px] bg-[#00d48d] rounded-[12px] w-full h-auto">
+              {item.bot}
+            </p>
+          </div>
+        ))}
+      </div>
 
       {/* 메시지 입력 부분 */}
       <form
-        className="absolute left-0 bottom-0 flex justify-between items-center p-[10px] w-full bg-white rounded-[0px_0px_6px_6px]"
+        className={`absolute left-0 bottom-0 flex justify-between items-center px-[20px] py-[10px] w-full bg-white rounded-[0px_0px_6px_6px]}`}
         onSubmit={(e) => {
           e.preventDefault();
           sendMessage();
@@ -57,7 +79,7 @@ export default function Chatbot({
         ></input>
         <button
           type="submit"
-          className="w-[18%] h-[40px] bg-[#111] text-white rounded-[6px]"
+          className="w-[20%] h-[40px] bg-[#111] text-white rounded-[6px]"
         >
           전송
         </button>
