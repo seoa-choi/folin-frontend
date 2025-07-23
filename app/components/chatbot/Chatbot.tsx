@@ -18,7 +18,9 @@ export default function Chatbot({
   return (
     <div className="max-w-[400px] h-[500px] bg-white fixed w-full bottom-[102px] right-[12px] rounded-[6px] z-1000000 border border-[#00d48d] overflow-hidden overflow-y-scroll scroll pr-[10px] scroll-p-0">
       <div className="flex justify-between items-center p-[10px]">
-        <h2 className="px-[12px]">OpenAi chatbot</h2>
+        <h2 className="px-[12px] text-[20px] font-semibold font-[SUITE]">
+          궁금한게 있으신가요?
+        </h2>
         <button type="button" className="bg-white" onClick={handleClose}>
           <Image src="/images/x.png" alt="닫기" width={32} height={32} />
         </button>
@@ -40,7 +42,7 @@ export default function Chatbot({
 
       {/* 메시지 입력 부분 */}
       <form
-        className="sticky left-0 bottom-0 flex justify-between items-center p-[10px] w-full bg-white rounded-[0px_0px_6px_6px]"
+        className="absolute left-0 bottom-0 flex justify-between items-center p-[10px] w-full bg-white rounded-[0px_0px_6px_6px]"
         onSubmit={(e) => {
           e.preventDefault();
           sendMessage();
