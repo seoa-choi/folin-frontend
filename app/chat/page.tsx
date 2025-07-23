@@ -1,5 +1,6 @@
 'use client';
 
+import ChatAni from '@/app/components/chatbot/ChatAni';
 import Chatbot from '@/app/components/chatbot/Chatbot';
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
@@ -47,9 +48,10 @@ export default function ChatPage() {
     <>
       <button
         type="button"
-        className="fixed bottom-[12px] right-[12px] w-[50px] h-[50px] bg-[url(/images/icon_144.png)] bg-cover bg-no-repeat rounded-[6px] z-10000000"
+        className="fixed bottom-[102px] right-[12px] w-[50px] h-[50px] bg-[url(/images/icon_144.png)] bg-cover bg-no-repeat rounded-[6px] z-10000000 max-md:bottom-[120px]"
         onClick={handleClose}
       ></button>
+      <ChatAni />
       {isClose && (
         <Chatbot
           inputValue={inputValue}

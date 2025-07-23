@@ -29,9 +29,7 @@ export default function Chatbot({
   }, [messages]);
 
   return (
-    <div
-      className={`chatbot max-w-[400px] h-[500px] bg-[#ebedec] fixed w-full bottom-[50%] right-[12px] translate-y-[50%] rounded-[6px] z-1000000 border border-[#00d48d] overflow-hidden`}
-    >
+    <div className="chatbot max-w-[400px] h-[500px] bg-[#ebedec] fixed w-full bottom-[50%] right-[12px] translate-y-[50%] rounded-[6px] z-1000000 border border-[#00d48d] overflow-hidden max-sm:w-[94%] max-sm:mx-auto">
       <div className="flex justify-between items-center p-[10px]">
         <h2 className="px-[12px]">OpenAi chatbot</h2>
         <button
@@ -72,7 +70,7 @@ export default function Chatbot({
       >
         <input
           type="text"
-          placeholder="메시지를 입력해 주세요 💬"
+          placeholder="메시지를 입력해 주세요"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           className="h-[40px] w-[80%] border-none bg-white caret-[#00d48d] placeholder:text-[#111]"

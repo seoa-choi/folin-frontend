@@ -63,3 +63,5 @@ export default function MainLayout({
 // - 해당 요소가 부모 요소(가장 가까운 relative, absolute등을 가진 요소 기준)으로 얼마나 떨어져 있는지, (margin 제외)
 // - 반환 값: 요소의 top 위치 픽셀 값 number
 // static인 경우 부모 컨테이너 기준으로 계산 됨
+
+// scrollHeight 실제 콘텐츠 높이

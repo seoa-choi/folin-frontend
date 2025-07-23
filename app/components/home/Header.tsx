@@ -97,7 +97,13 @@ export default function Header() {
       className="fixed w-full left-0 top-0 px-[24px] max-sm:px-[8px] z-100"
       id="header"
     >
-      <div className="max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute before:bg-[#ebedec] before:w-full before:h-[50px]">
+      <div
+        className={`max-w-[1200px] mx-auto pt-[4px] relative max-sm:pt-[8px]  before:left-0 before:top-0 before:absolute  before:w-full before:h-[50px] ${
+          pathname.startsWith('/article/')
+            ? 'before:bg-[linear-gradient(rgb(255,255,255)_0%,rgb(255,255,255)_50%,transparent_100%)]'
+            : 'before:bg-[#ebedec]'
+        }`}
+      >
         <nav className="w-full h-[48px] flex items-center justify-between p-[8px] bg-point1 rounded-[6px] relative">
           <div className="flex items-center gap-[10px]">
             <Gnb menus={menus} submenus={submenus} menus2={menus2} />
