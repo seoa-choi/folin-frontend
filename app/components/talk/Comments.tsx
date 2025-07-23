@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import { JSX } from 'react';
 
-const stars: any[] = [];
+const stars: JSX.Element[] = [];
 for (let i = 1; i <= 5; i++) {
   stars.push(
     <Image src="/images/star.png" alt={`${i}`} width={32} height={32} key={i} />
