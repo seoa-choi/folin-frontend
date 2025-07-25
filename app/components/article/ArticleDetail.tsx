@@ -156,7 +156,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                   <button
                     key={ite.alt}
                     type="button"
-                    className="group nth-[5]:border-r nth-[5]:h-[16px]"
+                    className="group nth-[5]:border-r nth-[5]:h-[16px] bg-white"
                     onMouseEnter={() => handleMouseHover(i)}
                     onMouseLeave={() => handleMouseHover(null)}
                     // share버튼만 이벤트 처리
