@@ -19,7 +19,7 @@ export default function CommentItem({
   setComments: Dispatch<SetStateAction<Cmt[]>>;
   comment: Cmt;
 }) {
-  const [rating, setRating] = useState(0);
+  const [, setRating] = useState(0);
 
   return (
     <li className="border-t border-t-[#ebedec] py-[24px]">
