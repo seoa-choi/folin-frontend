@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'api.seoachoiaws.com',
-        pathname: '/',
+        pathname: '/**',
       },
       {
         protocol: 'http',
