@@ -111,6 +111,7 @@ export default function Footer() {
                     alt={item.alt}
                     width={24}
                     height={24}
+                    loading="lazy"
                   />
                 </Link>
               </li>
@@ -151,6 +152,7 @@ export default function Footer() {
                 alt={item.alt}
                 width={item.w}
                 height={item.h}
+                loading="lazy"
               />
             </button>
           ))}

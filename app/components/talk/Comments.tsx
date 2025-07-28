@@ -16,7 +16,7 @@ export default function Comments() {
   return (
     <div className="border-b border-b-[#00d48d] mb-[72px]">
       <div className="flex gap-[7px]">
-        <h3>후기</h3>
+        <h3 className="font-bold">후기</h3>
         <span>{comments.length}개</span>
       </div>
       {/* 별점, 코멘트 */}

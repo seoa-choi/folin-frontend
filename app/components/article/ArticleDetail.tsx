@@ -170,6 +170,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                         alt={ite.alt}
                         width={24}
                         height={24}
+                        loading="lazy"
                       />
                     )}
                   </button>
@@ -188,6 +189,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                       width={32}
                       height={32}
                       className="rounded-[50%]"
+                      loading="lazy"
                     />
                     <strong className="font-bold">{linker.author}</strong>
                     <span>{linker.affiliation}</span>
@@ -215,7 +217,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                   alt={!item.detail.p ? item.sub_title : item.detail.p}
                   width={572}
                   height={429}
-                  priority
+                  loading="lazy"
                 />
                 <figcaption className="mt-[8px] text-[13px] text-left">
                   {!item.detail.p ? item.series_title : item.detail.p}

@@ -26,7 +26,13 @@ export default function SeminarBar({
             className="bg-[#f2ec72] shrink-0"
             onClick={handleClose}
           >
-            <Image src="/images/x.png" alt="닫기" width={32} height={32} />
+            <Image
+              src="/images/x.png"
+              alt="닫기"
+              width={32}
+              height={32}
+              loading="lazy"
+            />
           </button>
         </div>
       </div>

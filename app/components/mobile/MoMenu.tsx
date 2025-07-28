@@ -45,6 +45,7 @@ export default function MoMenu({
               alt="홈"
               width={24}
               height={24}
+              loading="lazy"
             />
           </Link>
           <div>
@@ -54,6 +55,7 @@ export default function MoMenu({
                 alt="찾기"
                 width={24}
                 height={24}
+                loading="lazy"
               />
             </button>
             <button type="button">
@@ -63,6 +65,7 @@ export default function MoMenu({
                 width={24}
                 height={24}
                 onClick={handleMoMenuClose}
+                loading="lazy"
               />
             </button>
           </div>

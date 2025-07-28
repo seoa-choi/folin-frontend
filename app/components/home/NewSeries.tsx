@@ -75,6 +75,7 @@ export default function NewSeries() {
                     alt="새로운 콘텐츠"
                     width={51}
                     height={32}
+                    loading="lazy"
                   />
                 </div>
                 <div>
@@ -138,6 +139,8 @@ export default function NewSeries() {
                       alt="더보기"
                       width={36}
                       height={17}
+                      loading="lazy"
+                      className="h-auto"
                     />
                   </Link>
                 </li>
@@ -154,8 +157,9 @@ export default function NewSeries() {
                 src="/images/newseries.png"
                 alt="뉴시리즈"
                 width={156}
-                height={25}
-                className="w-full h-full object-cover"
+                height={26}
+                className="h-auto"
+                loading="lazy"
               />
             </h3>
             <Link href={`/article/${articleItem.contents_id}`}>
@@ -200,6 +204,8 @@ export default function NewSeries() {
                     alt="더보기"
                     width={36}
                     height={17}
+                    loading="lazy"
+                    className="h-auto"
                   />
                 </Link>
               </li>

@@ -35,6 +35,7 @@ export default function SearchLayout({
           alt="검색"
           width={20}
           height={20}
+          loading="lazy"
         />
       </button>
     </form>

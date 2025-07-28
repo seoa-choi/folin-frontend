@@ -35,6 +35,7 @@ export default function Pagination({
             alt="이전"
             width={16}
             height={16}
+            loading="lazy"
           />
         </button>
         <ol className="flex items-center gap-[8px] mx-[8px]">
@@ -72,6 +73,7 @@ export default function Pagination({
             width={16}
             height={16}
             className="transform rotate-[180deg]"
+            loading="lazy"
           />
         </button>
       </div>

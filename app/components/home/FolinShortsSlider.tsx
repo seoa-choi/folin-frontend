@@ -81,6 +81,7 @@ export default function FolinShortsSlider() {
                 width={280}
                 height={960}
                 className="w-full h-full object-cover rounded-[6px] aspect-auto max-h-[600px]"
+                loading="lazy"
               />
             </Link>
           </SwiperSlide>

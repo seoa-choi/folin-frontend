@@ -17,6 +17,7 @@ export default function NextSeminar() {
             width={600}
             height={800}
             className="group-hover:scale-[1.05] duration-[0.3s] max-md:group-hover:scale-[1]"
+            loading="lazy"
           />
         </div>
         {/* 오 */}
@@ -29,6 +30,7 @@ export default function NextSeminar() {
                 alt="nextseminaricon"
                 width={198}
                 height={25}
+                loading="lazy"
               />
             </h3>
             <h3 className="mb-[16px] text-[28px] font-bold leading-[36px] group-hover:text-[#00d48d] max-md:group-hover:text-[#111]">
@@ -72,6 +74,7 @@ export default function NextSeminar() {
                 alt="nextseminaricon"
                 width={198}
                 height={25}
+                loading="lazy"
               />
             </h3>
             <h3 className="mb-[16px] text-[28px] font-bold leading-[36px] group-hover:text-[#00d48d] max-md:group-hover:text-[#111]">
@@ -105,6 +108,7 @@ export default function NextSeminar() {
             width={600}
             height={800}
             className="group-hover:scale-[1.05] duration-[0.3s] max-md:group-hover:scale-[1]"
+            loading="lazy"
           />
         </div>
       </Link>

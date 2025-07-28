@@ -34,6 +34,7 @@ export default function CommentItem({
               width={26}
               height={26}
               className="rounded-[50%]"
+              loading="lazy"
             />
           </div>
           <div className="">

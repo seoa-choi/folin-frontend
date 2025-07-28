@@ -63,7 +63,13 @@ export default function SearchMenu({
         <fieldset className="flex items-center gap-x-[8px]">
           <legend>통합 검색창</legend>
           <button type="submit" className="w-[32px] h-[32px] bg-transparent">
-            <Image src="/images/search.png" alt="검색" width={24} height={24} />
+            <Image
+              src="/images/search.png"
+              alt="검색"
+              width={24}
+              height={24}
+              loading="lazy"
+            />
           </button>
           {/* caret 커서 색상 */}
           <input
@@ -86,6 +92,7 @@ export default function SearchMenu({
               alt="내용삭제"
               width={24}
               height={24}
+              loading="lazy"
             />
           </button>
         </fieldset>

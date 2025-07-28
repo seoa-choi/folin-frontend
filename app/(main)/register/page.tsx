@@ -12,6 +12,7 @@ export default function Register() {
           alt="지금 가입하면 첫달 무료!"
           width={588}
           height={72}
+          loading="lazy"
         />
         <div className="mb-[40px]">
           <button
@@ -23,6 +24,7 @@ export default function Register() {
               alt="카카오로 3초만에 시작하기"
               width={24}
               height={24}
+              loading="lazy"
             />
             <span>카카오로 3초 만에 시작하기</span>
           </button>

@@ -2,16 +2,30 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // images: {
+  //   domains: ['api.seoachoiaws.com', 'localhost'],
+  //   remotePatterns: [
+  //     {
+  //       protocol: 'http',
+  //       hostname: '**',
+  //     },
+  //     {
+  //       protocol: 'https',
+  //       hostname: '**',
+  //     },
+  //   ],
+  // },
   images: {
-    domains: ['api.seoachoiaws.com', 'localhost'],
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '**',
+        protocol: 'https',
+        hostname: 'api.seoachoiaws.com',
+        pathname: '/',
       },
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/**',
       },
     ],
   },

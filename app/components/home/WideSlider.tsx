@@ -59,6 +59,7 @@ export default function WideSlider() {
                 width={1200}
                 height={120}
                 className="rounded-[6px] max-md:hidden"
+                loading="lazy"
               />
               {/* 1024 미만 */}
               <Image
@@ -67,6 +68,7 @@ export default function WideSlider() {
                 width={1024}
                 height={232}
                 className="rounded-[6px] hidden max-md:block h-full object-cover"
+                loading="lazy"
               />
             </Link>
           </SwiperSlide>

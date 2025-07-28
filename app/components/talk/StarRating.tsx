@@ -27,6 +27,7 @@ export default function StarRating({
             alt={`star${starNumber}`}
             width={32}
             height={32}
+            loading="lazy"
             onMouseEnter={() => !readonly && setHoveredStar(starNumber)}
             onMouseLeave={() => !readonly && setHoveredStar(0)}
             onClick={() => !readonly && setRating(starNumber)}

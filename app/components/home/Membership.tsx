@@ -17,6 +17,7 @@ export default function Membership({ isSticky }: { isSticky: boolean }) {
             alt="멤버십"
             width={204}
             height={31}
+            loading="lazy"
           />
         </div>
         <div className="flex justify-center items-center gap-x-[9px] max-md:flex-col">
@@ -27,7 +28,9 @@ export default function Membership({ isSticky }: { isSticky: boolean }) {
             src="/images/gg.png"
             alt="지금 첫 달 무료로 커리어 성장하기"
             width={41}
-            height={15}
+            height={20}
+            loading="lazy"
+            style={{ height: 'auto' }}
           />
         </div>
       </Link>

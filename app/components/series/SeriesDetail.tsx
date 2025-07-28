@@ -90,6 +90,7 @@ export default function SeriesDetail({
                     alt="공유"
                     width={24}
                     height={24}
+                    loading="lazy"
                   />
                 </button>
               </div>

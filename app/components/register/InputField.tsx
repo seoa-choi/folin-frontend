@@ -45,6 +45,7 @@ export default function InputField({
                 alt="비밀번호 숨김"
                 width={24}
                 height={24}
+                loading="lazy"
               />
             </button>
           </div>

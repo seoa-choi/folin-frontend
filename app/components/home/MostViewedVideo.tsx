@@ -140,6 +140,7 @@ export default function MostViewedVideo() {
                         alt="비디오"
                         width={32}
                         height={32}
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute left-[44px] top-[26px]">
@@ -150,6 +151,7 @@ export default function MostViewedVideo() {
                           alt={item.alt}
                           width={51}
                           height={32}
+                          loading="lazy"
                         />
                       )}
                     </div>
@@ -159,6 +161,7 @@ export default function MostViewedVideo() {
                       width={368}
                       height={276}
                       className="w-full h-full object-cover rounded-[6px]"
+                      loading="lazy"
                     />
                   </div>
                 </div>

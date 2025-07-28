@@ -43,6 +43,7 @@ export default function SearchArea({
               alt="검색"
               width={24}
               height={24}
+              loading="lazy"
             />
           </button>
           <input
@@ -66,6 +67,7 @@ export default function SearchArea({
               alt="내용삭제"
               width={24}
               height={24}
+              loading="lazy"
             />
           </button>
         </fieldset>

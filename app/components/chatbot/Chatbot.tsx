@@ -37,7 +37,13 @@ export default function Chatbot({
           className="bg-white rounded-[50%]"
           onClick={() => setIsClose(false)}
         >
-          <Image src="/images/x.png" alt="닫기" width={32} height={32} />
+          <Image
+            src="/images/x.png"
+            alt="닫기"
+            width={32}
+            height={32}
+            loading="lazy"
+          />
         </button>
       </div>
       {/* 대화 */}

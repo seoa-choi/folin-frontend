@@ -118,6 +118,7 @@ export default function Header() {
                   width={86}
                   height={29}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </Link>
             </h1>
@@ -155,6 +156,7 @@ export default function Header() {
                   alt="검색"
                   width={32}
                   height={32}
+                  loading="lazy"
                 />
               ) : (
                 <Image
@@ -162,6 +164,7 @@ export default function Header() {
                   alt="닫기"
                   width={32}
                   height={32}
+                  loading="lazy"
                 />
               )}
             </button>

@@ -66,6 +66,7 @@ export default function Gnb({
           width={32}
           height={32}
           onClick={handleToggleMenu}
+          loading="lazy"
         />
       </button>
       {!isDropDownOpen ? (

@@ -99,6 +99,7 @@ export default function SeriesInside() {
                             width={368}
                             height={276}
                             className="w-full h-full object-cover rounded-[6px]"
+                            loading="lazy"
                           />
                         </div>
                       </div>

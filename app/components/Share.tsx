@@ -46,14 +46,26 @@ export default function Share({
             className="bg-transparent absolute top-[12px] right-[12px] w-[32px] p-[4px]"
             onClick={handleShowShare}
           >
-            <Image src="/images/xx.png" alt="close" width={64} height={64} />
+            <Image
+              src="/images/xx.png"
+              alt="close"
+              width={64}
+              height={64}
+              loading="lazy"
+            />
           </button>
           <h2 className="my-[20px] text-center font-bold">공유하기</h2>
         </div>
         <div className="flex gap-[16px] mb-[24px]">
           {spread.map((item, i) => (
             <button key={i} type="button" className="bg-transparent">
-              <Image src={item.snsImg} alt={item.alt} width={48} height={48} />
+              <Image
+                src={item.snsImg}
+                alt={item.alt}
+                width={48}
+                height={48}
+                loading="lazy"
+              />
             </button>
           ))}
         </div>
@@ -78,6 +90,7 @@ export default function Share({
                 alt="urlIcon"
                 width={24}
                 height={24}
+                loading="lazy"
               />
             ) : (
               <Image
@@ -85,6 +98,7 @@ export default function Share({
                 alt="urlIcon"
                 width={24}
                 height={24}
+                loading="lazy"
               />
             )}
           </button>

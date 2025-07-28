@@ -61,7 +61,7 @@ export default function CommentAdd({
           <textarea
             rows={3}
             placeholder="콘텐츠에 대한 의견을 남겨주세요."
-            className={`h-[116px] w-full bg-[#ebedec] rounded-[6px] p-[12px_16px] outline-1 ${
+            className={`h-[116px] w-full placeholder-[#8e8e8e] placeholder:font-semibold bg-[#f7f7f7] rounded-[6px] p-[12px_16px] outline-1 ${
               bd ? 'outline-[rgb(0,212,141)]' : 'outline-none'
             }`}
             // onChange={(e) => setTxt(e.target.value)}
