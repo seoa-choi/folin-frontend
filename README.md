@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI 서비스개발 프로젝트 구축 기술스택
 
-## Getting Started
+### Fol:in 프론트엔드 클론코딩
 
-First, run the development server:
+**`[소개]`**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+각 직군 전문가의 경험을 바탕으로 한 콘텐츠 구독 서비스입니다. 프론트엔드 개발을 중심으로 백엔드, DB구성, CI/CD 전체적인 작업을 진행하였습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**`[기간]`**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 2025.06.09 ~ 2025.07.04 (이후 계속 작업 중)
+- 메인: 8일, 서브4장: 7일 , 백엔드: 5일 정도 소요
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**`[인원]`**
 
-## Learn More
+1명
 
-To learn more about Next.js, take a look at the following resources:
+**`[담당 주요 업무]`**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**`[개발 내용]`**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**`[트러블슈팅]`**
 
-## Deploy on Vercel
+**`[사용 기술]`**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Nextjs 프레임워크
+- React-Query 데이터 상태관리
+- Swiper 슬라이더
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**`[Github 링크]`**
+
+[GitHub - seoa-choi/folin-frontend](https://github.com/seoa-choi/folin-frontend.git)
+
+**`[프로젝트 링크]`**

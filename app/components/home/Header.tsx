@@ -117,7 +117,7 @@ export default function Header() {
                   alt="폴인"
                   width={86}
                   height={29}
-                  className="w-full h-full object-cover"
+                  className="h-auto"
                   loading="lazy"
                 />
               </Link>

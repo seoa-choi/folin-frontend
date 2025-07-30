@@ -217,7 +217,7 @@ export default function ArticleDetail({ articleId }: { articleId: string }) {
                   alt={!item.detail.p ? item.sub_title : item.detail.p}
                   width={572}
                   height={429}
-                  loading="lazy"
+                  priority
                 />
                 <figcaption className="mt-[8px] text-[13px] text-left">
                   {!item.detail.p ? item.series_title : item.detail.p}

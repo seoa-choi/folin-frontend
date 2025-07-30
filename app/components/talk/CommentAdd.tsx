@@ -1,5 +1,5 @@
 import StarRating from '@/app/components/talk/StarRating';
-import { Dispatch, SetStateAction, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 type Cmt = {
   id: number;
@@ -49,6 +49,11 @@ export default function CommentAdd({
     if (e.key === 'Enter') handleAdd();
   }
 
+  // 텍스트, 별점 0 이상이면 버튼 활성화
+  useEffect(() => {
+    setBt(txt.length > 0 && rating > 0);
+  }, [txt, rating]);
+
   return (
     <div className="pt-[16px] pb-[32px]">
       <div className="flex flex-col">
@@ -73,7 +78,7 @@ export default function CommentAdd({
               const value = e.target.value;
               setTxt(value);
               // 텍스트 입력 시 버튼 활성화
-              setBt(value.length > 0);
+              // setBt(value.length > 0);
             }}
           />
         </div>
